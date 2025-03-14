@@ -1,0 +1,98 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 38 69% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 40 94% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 30 96% 56%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 35 30% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 33 94% 55%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 38 20% 90%;
+    --input: 38 20% 90%;
+    --ring: 35 91% 65%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-glass;
+  }
+  
+  .btn-primary {
+    @apply bg-doit-400 text-white hover:bg-doit-500 transition-all duration-300 shadow-md hover:shadow-lg px-6 py-3 rounded-full font-medium;
+  }
+  
+  .btn-secondary {
+    @apply bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 shadow-md hover:shadow-lg px-6 py-3 rounded-full font-medium;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-doit-400 text-doit-400 hover:bg-doit-400/10 transition-all duration-300 px-6 py-2.5 rounded-full font-medium;
+  }
+
+  .card-hover {
+    @apply hover:shadow-lg hover:-translate-y-1 transition-all duration-300;
+  }
+  
+  .nav-link {
+    @apply text-foreground/80 hover:text-foreground transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-doit-400 after:transition-all after:duration-300 hover:after:w-full;
+  }
+  
+  .h1 {
+    @apply text-4xl md:text-5xl font-bold tracking-tight;
+  }
+  
+  .h2 {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  }
+  
+  .h3 {
+    @apply text-2xl md:text-3xl font-bold;
+  }
+  
+  .h4 {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+  
+  .container-custom {
+    @apply px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl;
+  }
+}
