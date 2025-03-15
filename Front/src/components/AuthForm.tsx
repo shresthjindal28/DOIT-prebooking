@@ -18,9 +18,8 @@ interface AuthFormProps {
 const AuthForm = ({ mode, role }: AuthFormProps) => {
   const { setUser } = useAuth();
   const [name, setName] = useState("");
+  const [mobnumber, setMobnumber] = useState("");
   const [email, setEmail] = useState("");
-  const [mobileNo, setMobileNo] = useState("");
-
   const [password, setPassword] = useState("");
   const [selectedRole, setSelectedRole] = useState<"homeowner" | "provider">(
     role === "provider" ? "provider" : "homeowner"
@@ -41,8 +40,8 @@ const AuthForm = ({ mode, role }: AuthFormProps) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(
           mode === "login"
-            ? { email, password, role: selectedRole }
-            : { name, email, password, role: selectedRole }
+            ? { email, password, mobnumber, role: selectedRole }
+            : { name, email, password, mobnumber, role: selectedRole }
         ),
       });
 
@@ -77,31 +76,44 @@ const AuthForm = ({ mode, role }: AuthFormProps) => {
         </div>
       )}
 
-      {/* <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
-        <Input
-          id="email"
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="h-12"
-        />
-      </div> */}
+<div className="space-y-2">
+  <Label htmlFor="mobnumber">Mobile Number</Label>
+  <Input
+    id="mobnumber"
+    type="tel"
+    placeholder="Enter your Mobile Number"
+    value={mobnumber}
+    onChange={(e) => {
+      const input = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+      if (input.length <= 10) setMobnumber(input); // Restrict length
+    }}
+    pattern="[0-9]{10}" // Ensures exactly 10 digits
+    minLength={10}
+    maxLength={10}
+    required
+    className="h-12"
+  />
+  {mobnumber.length > 0 && mobnumber.length < 10 && (
+    <p className="text-red-500 text-sm">
+      Mobile number must be exactly 10 digits.
+    </p>
+  )}
+</div>
 
-      <div className="space-y-2">
-        <Label htmlFor="mobile number">Mobile Number</Label>
-        <Input
-          id="number"
-          type="number"
-          placeholder="Enter your Mobile Number"
-          value={mobileNo}
-          onChange={(e) => setMobileNo(e.target.value)}
-          required
-          className="h-12"
-        />
-      </div>
+      {mode === "signup" && (
+        <div className="space-y-2">
+          <Label htmlFor="email">Email</Label>
+          <Input
+            id="email"
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="h-12"
+          />
+        </div>
+      )}
 
       <div className="space-y-2">
         <Label htmlFor="password">Password</Label>

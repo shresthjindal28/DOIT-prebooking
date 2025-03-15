@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from '@/context/AuthContext';
 import { Button } from "@/components/ui/button";
 import SearchBar from "@/components/SearchBar";
 import { ShoppingCart } from "lucide-react";

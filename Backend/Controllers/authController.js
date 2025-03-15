@@ -9,7 +9,7 @@ const generateToken = (id, role) => {
 };
 
 const registerUser = async (req, res) => {
-  const { name, email, password, role } = req.body;
+  const { name, email, password,mobnumber, role } = req.body;
 
   try {
     // Check if user already exists
@@ -26,12 +26,13 @@ const registerUser = async (req, res) => {
     if (role === "provider") {
       newUser = new ServiceProvider({
         name,
+        mobnumber,
         email,
         password: hashedPassword,
         role,
       });
     } else if (role === "homeowner") {
-      newUser = new Homeowner({ name, email, password: hashedPassword, role });
+      newUser = new Homeowner({ name, email,mobnumber, password: hashedPassword, role });
     } else {
       return res.status(400).json({ message: "Invalid role" });
     }
@@ -50,7 +51,7 @@ const registerUser = async (req, res) => {
   }
 };
 const loginUser = async (req, res) => {
-  const { email, password, role } = req.body; // Include role in request
+  const { mobnumber , password, role } = req.body; // Include role in request
 
   console.log(req.body.role)
   try {
@@ -58,9 +59,9 @@ const loginUser = async (req, res) => {
 
     // Check in the correct model based on the role
     if (role === "provider") {
-      user = await ServiceProvider.findOne({ email });
+      user = await ServiceProvider.findOne({  mobnumber });
     } else if (role === "homeowner") {
-      user = await Homeowner.findOne({ email });
+      user = await Homeowner.findOne({  mobnumber });
     } 
 
     if (!user) return res.status(400).json({ message: "User not found" });
