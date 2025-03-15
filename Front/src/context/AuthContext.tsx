@@ -164,10 +164,11 @@ interface AuthContextProps {
   loading: boolean;
   setUser: (user: User | null) => void;
   logout: () => void;
+  isAuthenticated: boolean; // Add this
+  isAdmin: boolean; // Add this
 }
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
-
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
@@ -208,8 +209,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(null);
   };
 
+  // Define isAuthenticated and isAdmin before returning the provider
+  const isAuthenticated = !!user;
+  const isAdmin = user?.role === "admin";
+
   return (
-    <AuthContext.Provider value={{ user, loading, setUser, logout }}>
+    <AuthContext.Provider value={{ user, loading, setUser, logout, isAuthenticated, isAdmin }}>
       {children}
     </AuthContext.Provider>
   );
