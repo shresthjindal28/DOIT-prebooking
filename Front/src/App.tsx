@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound";
 import Services from "./pages/Services";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Footer from "./pages/Footer";
 import { useAuth } from "@/context/AuthContext";
 
 const queryClient = new QueryClient();
@@ -61,6 +62,7 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
+          <Footer />
         </BrowserRouter>
       </AuthProvider>
     </TooltipProvider>

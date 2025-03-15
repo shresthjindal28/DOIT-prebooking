@@ -143,28 +143,28 @@ const Navbar = () => {
                 <div className="py-1 rounded-md bg-white">
                   <Link
                     to="/dashboard"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-muted flex items-center"
+                    className="px-4 py-2 text-sm text-gray-700 hover:bg-muted flex items-center"
                   >
                     <User size={16} className="mr-2" />
                     Dashboard
                   </Link>
                   <Link
                     to="/appointments"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-muted flex items-center"
+                    className="px-4 py-2 text-sm text-gray-700 hover:bg-muted flex items-center"
                   >
                     <Calendar size={16} className="mr-2" />
                     Appointments
                   </Link>
                   <Link
                     to="/settings"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-muted flex items-center"
+                    className="px-4 py-2 text-sm text-gray-700 hover:bg-muted flex items-center"
                   >
                     <Settings size={16} className="mr-2" />
                     Settings
                   </Link>
                   <button
                     onClick={logout}
-                    className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-muted flex items-center"
+                    className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-muted flex items-center"
                   >
                     <LogOut size={16} className="mr-2" />
                     Logout
@@ -196,17 +196,26 @@ const Navbar = () => {
         </div>
 
         {/* Mobile menu button */}
-        <button
-          className="md:hidden flex items-center text-foreground"
-          onClick={toggleMobileMenu}
-        >
-          <Menu size={24} />
-        </button>
+
+          <div className="md:hidden flex items-center justify-between w-full p-2 z-50">
+            <Link to="/" className="flex items-center space-x-2">
+              <span className="text-2xl font-bold text-doit-400 tracking-tight animate-pulse-gentle">
+                <img className="h-8 w-9" src={Logo} alt="logo" />
+              </span>
+            </Link>
+          <button
+            className="text-black"
+            onClick={toggleMobileMenu}
+          >
+            <Menu size={24} />
+          </button>
+          </div>
+
       </div>
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden fixed inset-0 z-50 bg-white transform ${
+        className={`md:hidden fixed inset-0 z-10 bg-white transform ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300 ease-in-out pt-20`}
       >

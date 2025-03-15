@@ -1,12 +1,14 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { useAuth } from "@/context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
+import { useAuth } from "@/context/AuthContext";
+
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
 interface AuthFormProps {
   mode: "login" | "signup";
@@ -14,16 +16,18 @@ interface AuthFormProps {
 }
 
 const AuthForm = ({ mode, role }: AuthFormProps) => {
+  const { setUser } = useAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [mobnumber, setMobnumber] = useState("");
+  const [mobileNo, setMobileNo] = useState("");
 
-  const [selectedRole, setSelectedRole] = useState<"homeowner" | "provider">(role === "provider" ? "provider" : "homeowner");
+  const [password, setPassword] = useState("");
+  const [selectedRole, setSelectedRole] = useState<"homeowner" | "provider">(
+    role === "provider" ? "provider" : "homeowner"
+  );
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
-  
-  const { login, signup } = useAuth();
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -32,36 +36,30 @@ const AuthForm = ({ mode, role }: AuthFormProps) => {
     setIsSubmitting(true);
 
     try {
-      if (mode === "login") {
-        // Pass the role to login function
-        await login(email, password, role);
-        
-        // Redirect based on role
-        if (role === "admin") {
-          navigate("/admin");
-        } else if (role === "provider") {
-          navigate("/dashboard"); // This will redirect to provider dashboard based on user role
-        } else {
-          navigate("/dashboard"); // This will redirect to user dashboard based on user role
-        }
-      } else {
-        await signup(name, email, password, selectedRole);
-        navigate("/dashboard");
-      }
-    } catch (err) {
-      setError("Authentication failed. Please check your information and try again.");
+      const response = await fetch(`${API_BASE_URL}/api/auth/${mode}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(
+          mode === "login"
+            ? { email, password, role: selectedRole }
+            : { name, email, password, role: selectedRole }
+        ),
+      });
+
+      const data = await response.json();
+      if (!response.ok)
+        throw new Error(data.message || "Authentication failed.");
+
+      localStorage.setItem("doit-token", data.token);
+      setUser(data.user); // ✅ Update AuthContext immediately
+
+      navigate(data.user.role === "admin" ? "/admin" : "/dashboard");
+    } catch (err: any) {
+      setError(err.message);
     } finally {
       setIsSubmitting(false);
     }
   };
-
-  // Pre-fill admin credentials if in admin mode
-  useEffect(() => {
-    if (role === "admin") {
-      setEmail("admin@doit.com");
-      setPassword("admin123");
-    }
-  }, [role]);
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 animate-fade-in">
@@ -78,21 +76,8 @@ const AuthForm = ({ mode, role }: AuthFormProps) => {
           />
         </div>
       )}
-      
-      <div className="space-y-2">
-        <Label htmlFor="number">Mobile Number</Label>
-        <Input
-          id="number"
-          type="number"
-          placeholder="Enter your Mobile Number"
-          value={mobnumber}
-          onChange={(e) => setMobnumber(e.target.value)}
-          required
-          className="h-12"
-        />
-      </div>
 
-      <div className="space-y-2">
+      {/* <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
         <Input
           id="email"
@@ -103,8 +88,21 @@ const AuthForm = ({ mode, role }: AuthFormProps) => {
           required
           className="h-12"
         />
+      </div> */}
+
+      <div className="space-y-2">
+        <Label htmlFor="mobile number">Mobile Number</Label>
+        <Input
+          id="number"
+          type="number"
+          placeholder="Enter your Mobile Number"
+          value={mobileNo}
+          onChange={(e) => setMobileNo(e.target.value)}
+          required
+          className="h-12"
+        />
       </div>
-      
+
       <div className="space-y-2">
         <Label htmlFor="password">Password</Label>
         <Input
@@ -117,38 +115,35 @@ const AuthForm = ({ mode, role }: AuthFormProps) => {
           className="h-12"
         />
       </div>
-      
+
       {mode === "signup" && role !== "admin" && (
-        <div className="space-y-2">
-          <Label>I am a:</Label>
-          <RadioGroup 
-            value={selectedRole} 
-            onValueChange={(value) => setSelectedRole(value as "homeowner" | "provider")} 
-            className="flex space-x-4"
-          >
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="homeowner" id="homeowner" />
-              <Label htmlFor="homeowner" className="cursor-pointer">Homeowner</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="provider" id="provider" />
-              <Label htmlFor="provider" className="cursor-pointer">Service Provider</Label>
-            </div>
-          </RadioGroup>
-        </div>
+        <RadioGroup
+          value={selectedRole}
+          onValueChange={(value) =>
+            setSelectedRole(value as "homeowner" | "provider")
+          }
+          className="flex space-x-4"
+        >
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="homeowner" id="homeowner" />
+            <Label htmlFor="homeowner" className="cursor-pointer">
+              Homeowner
+            </Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="provider" id="provider" />
+            <Label htmlFor="provider" className="cursor-pointer">
+              Service Provider
+            </Label>
+          </div>
+        </RadioGroup>
       )}
-      
+
       {error && <p className="text-red-500 text-sm">{error}</p>}
-      
+
       <Button
         type="submit"
-        className={`w-full h-12 text-white font-medium transition-all duration-300 ${
-          role === "admin" 
-            ? "bg-gradient-to-r from-gray-600 to-gray-800 hover:from-gray-700 hover:to-gray-900" 
-            : role === "provider"
-            ? "bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700"
-            : "bg-gradient-to-r from-doit-400 to-orange-500 hover:from-doit-500 hover:to-orange-600"
-        }`}
+        className="w-full h-12 text-white font-medium transition-all duration-300 bg-gradient-to-r from-doit-400 to-orange-500 hover:from-doit-500 hover:to-orange-600"
         disabled={isSubmitting}
       >
         {isSubmitting ? (
@@ -159,16 +154,8 @@ const AuthForm = ({ mode, role }: AuthFormProps) => {
           "Sign Up"
         )}
       </Button>
-      
-      {role === "admin" && (
-        <p className="text-xs text-center text-muted-foreground mt-2">
-          Demo Admin: admin@doit.com / admin123
-        </p>
-      )}
     </form>
   );
 };
-
-import { useEffect } from "react";
 
 export default AuthForm;
