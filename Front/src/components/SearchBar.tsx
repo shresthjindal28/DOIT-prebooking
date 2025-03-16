@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
-import { Search } from 'lucide-react';
+import React, { useState } from "react";
+import { Search } from "lucide-react";
 // import { services } from '@/data/services';
 
-const SearchBar: React.FC<{ onFilterChange: (category: string) => void }> = ({ onFilterChange }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [serviceType, setServiceType] = useState('');
-  const [location, setLocation] = useState('');
-  const [city, setCity] = useState('');
-  const [priceRange, setPriceRange] = useState<number | string>('');
-  const [rating, setRating] = useState('');
+const SearchBar: React.FC<{ onFilterChange: (category: string) => void }> = ({
+  onFilterChange,
+}) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [serviceType, setServiceType] = useState("");
+  const [location, setLocation] = useState("");
+  const [city, setCity] = useState("");
+  const [priceRange, setPriceRange] = useState<number | string>("");
+  const [rating, setRating] = useState("");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const handleSearch = () => {
-    console.log('Searching with filters:', {
+    console.log("Searching with filters:", {
       searchTerm,
       serviceType,
       location,
@@ -33,12 +35,12 @@ const SearchBar: React.FC<{ onFilterChange: (category: string) => void }> = ({ o
       <div className="relative flex items-center w-full">
         {/* Search input field */}
         <input
-         type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Search for a service..."
-         className="search-input border border-gray-300 px-6 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-full text-sm"
-        style={{ fontSize: '0.875rem' }} // Set smaller font size for the input text
+          type="text"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder={window.innerWidth < 768 ? "Service.." : "Search for service..."}
+          className="search-input border border-gray-300 px-6 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-full text-sm"
+          style={{ fontSize: "0.875rem" }}
         />
 
         {/* Filter label */}
@@ -88,7 +90,7 @@ const SearchBar: React.FC<{ onFilterChange: (category: string) => void }> = ({ o
             type="text"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            placeholder={location === 'city' ? 'Enter City' : 'Enter Zip Code'} // Dynamic placeholder text
+            placeholder={location === "city" ? "Enter City" : "Enter Zip Code"} // Dynamic placeholder text
             className="filter-input w-[120px] border border-gray-300 px-2 py-1 rounded-md text-xs"
           />
 

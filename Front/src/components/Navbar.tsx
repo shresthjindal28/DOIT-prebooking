@@ -8,6 +8,7 @@ import { ShoppingCart } from "lucide-react";
 import Logo from "@/assests/Doitlogo.png";
 import {
   Menu,
+  X,
   Home,
   LogIn,
   UserPlus,
@@ -46,6 +47,30 @@ const Navbar = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      // Prevent scrolling when menu is open
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.height = '100%';
+    } else {
+      // Restore scrolling when menu is closed
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.height = '';
+    }
+
+    return () => {
+      // Cleanup function to restore scrolling when component unmounts
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.height = '';
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -54,16 +79,16 @@ const Navbar = () => {
           : "bg-transparent py-4"
       }`}
     >
-      <div className="container-custom flex items-center justify-between">
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-4 flex-grow">
+      <div className="container-custom flex items-center justify-between px-4 lg:px-6">
+        {/* Desktop Navigation - Changed from md to lg */}
+        <div className="hidden lg:flex items-center md:space-x-4 flex-grow">
           <Link to="/" className="flex items-center space-x-2">
             <span className="text-2xl font-bold text-doit-400 tracking-tight animate-pulse-gentle">
               <img className="h-8 w-9" src={Logo} alt="logo" />
             </span>
           </Link>
-          {/* Left-side Links */}
-          <div className="flex space-x-4">
+          {/* Left-side Links - Adjusted spacing */}
+          <div className="flex space-x-2 lg:space-x-4">
             <a
               href="#"
               className="text-black hover:text-white transition-colors"
@@ -78,18 +103,18 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Search Bar */}
-          <div className="flex items-center w-[22vw] ml-1 mr-1">
+          {/* Search Bar - Responsive width */}
+            <div className="flex items-center w-full lg:w-[22vw] xl:w-[25vw] 2xl:w-[30vw] ">
             <SearchBar
               onFilterChange={(category) => {
-                // Handle the category change here
-                console.log("Selected category:", category);
+              // Handle the category change here
+              console.log("Selected category:", category);
               }}
             />
-          </div>
+            </div>
 
-          {/* Right-side Links */}
-          <div className="flex space-x-4 ml-auto items-center">
+          {/* Right-side Links - Adjusted spacing */}
+          <div className="flex space-x-2 lg:space-x-4 ml-auto items-center">
             <a
               href="#"
               className="text-black hover:text-white transition-colors"
@@ -122,8 +147,8 @@ const Navbar = () => {
           
         </div>
 
-        {/* Authentication buttons */}
-        <div className="hidden md:flex items-center space-x-4">
+        {/* Authentication buttons - Changed from md to lg */}
+        <div className="hidden lg:flex items-center space-x-4">
           {isAuthenticated ? (
             <div className="relative group flex">
               <Button
@@ -195,91 +220,122 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile/Tablet menu button - Updated breakpoint */}
 
-          <div className="md:hidden flex items-center justify-between w-full p-2 z-50">
+          <div className="lg:hidden flex items-center justify-between w-full p-2 z-50">
             <Link to="/" className="flex items-center space-x-2">
               <span className="text-2xl font-bold text-doit-400 tracking-tight animate-pulse-gentle">
                 <img className="h-8 w-9" src={Logo} alt="logo" />
               </span>
             </Link>
           <button
-            className="text-black"
+            className="text-black p-2 hover:bg-gray-100 rounded-full transition-colors"
             onClick={toggleMobileMenu}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
-            <Menu size={24} />
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
           </div>
 
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile/Tablet menu - Updated breakpoint and styling */}
       <div
-        className={`md:hidden fixed inset-0 z-10 bg-white transform ${
+        className={`lg:hidden fixed inset-0 z-40 bg-white transform ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 ease-in-out pt-20`}
+        } transition-transform duration-300 ease-in-out pt-20 overflow-y-auto`}
       >
-        <div className="flex flex-col space-y-4 p-6">
-          <Link
-            to="/"
-            className="text-foreground py-2 px-4 hover:bg-muted rounded-md"
-          >
-            <Home size={16} className="inline-block mr-2" />
-            Home
-          </Link>
-          <Link
-            to="/services"
-            className="text-foreground py-2 px-4 hover:bg-muted rounded-md"
-          >
-            Services
-          </Link>
-          <Link
-            to="/about"
-            className="text-foreground py-2 px-4 hover:bg-muted rounded-md"
-          >
-            About
-          </Link>
-          <Link
-            to="/contact"
-            className="text-foreground py-2 px-4 hover:bg-muted rounded-md"
-          >
-            Contact
-          </Link>
+        <div className="flex flex-col space-y-4 p-4 md:p-6">
+          <div className="flex flex-col space-y-2 md:w-3/4 mx-auto">
+            <SearchBar
+              onFilterChange={(category) => {
+                console.log("Selected category:", category);
+              }}
+            />
+          </div>
 
-          <div className="border-t border-gray-200 pt-4 mt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
+            <Link
+              to="/"
+              className="flex items-center text-foreground py-3 px-4 hover:bg-gray-100 rounded-md transition-colors"
+            >
+              <Home size={16} className="mr-3" />
+              Home
+            </Link>
+            
+            <Link
+              to="/services"
+              className="flex items-center text-foreground py-3 px-4 hover:bg-gray-100 rounded-md transition-colors"
+            >
+              Services
+            </Link>
+
+            <Link
+              to="/enterprise"
+              className="flex items-center text-foreground py-3 px-4 hover:bg-gray-100 rounded-md transition-colors"
+            >
+              Enterprise
+            </Link>
+
+            <Link
+              to="/blog"
+              className="flex items-center text-foreground py-3 px-4 hover:bg-gray-100 rounded-md transition-colors"
+            >
+              Blog
+            </Link>
+
+            <Link
+              to="/support"
+              className="flex items-center text-foreground py-3 px-4 hover:bg-gray-100 rounded-md transition-colors"
+            >
+              Support
+            </Link>
+
+            <Link
+              to="/contact"
+              className="flex items-center text-foreground py-3 px-4 hover:bg-gray-100 rounded-md transition-colors"
+            >
+              Contact Us
+            </Link>
+          </div>
+
+          <div className="border-t border-gray-200 pt-4 mt-4 md:w-3/4 md:mx-auto">
             {isAuthenticated ? (
-              <>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
                 <div className="px-4 py-2 text-sm text-gray-500">
                   Signed in as <strong>{user?.name}</strong>
                 </div>
                 <Link
                   to="/dashboard"
-                  className="block py-2 px-4 hover:bg-muted"
+                  className="flex items-center py-3 px-4 hover:bg-gray-100 rounded-md transition-colors"
                 >
-                  <User size={16} className="inline-block mr-2" />
+                  <User size={16} className="mr-3" />
                   Dashboard
                 </Link>
                 <Link
                   to="/appointments"
-                  className="block py-2 px-4 hover:bg-muted"
+                  className="flex items-center py-3 px-4 hover:bg-gray-100 rounded-md transition-colors"
                 >
-                  <Calendar size={16} className="inline-block mr-2" />
+                  <Calendar size={16} className="mr-3" />
                   Appointments
                 </Link>
-                <Link to="/settings" className="block py-2 px-4 hover:bg-muted">
-                  <Settings size={16} className="inline-block mr-2" />
+                <Link 
+                  to="/settings" 
+                  className="flex items-center py-3 px-4 hover:bg-gray-100 rounded-md transition-colors"
+                >
+                  <Settings size={16} className="mr-3" />
                   Settings
                 </Link>
                 <button
                   onClick={logout}
-                  className="w-full text-left py-2 px-4 text-red-600 hover:bg-muted rounded-md"
+                  className="w-full flex items-center py-3 px-4 text-red-600 hover:bg-red-50 rounded-md transition-colors"
                 >
-                  <LogOut size={16} className="inline-block mr-2" />
+                  <LogOut size={16} className="mr-3" />
                   Logout
                 </button>
-              </>
+              </div>
             ) : (
-              <div className="flex flex-col space-y-3">
+              <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-3 px-4">
                 <Link to="/login" className="w-full">
                   <Button className="w-full justify-center" variant="outline">
                     <LogIn size={16} className="mr-2" />
@@ -287,7 +343,7 @@ const Navbar = () => {
                   </Button>
                 </Link>
                 <Link to="/signup" className="w-full">
-                  <Button className="w-full btn-primary justify-center">
+                  <Button className="w-full bg-yellow-400 hover:bg-yellow-500 text-black justify-center">
                     <UserPlus size={16} className="mr-2" />
                     Sign Up
                   </Button>

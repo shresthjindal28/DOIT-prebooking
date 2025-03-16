@@ -176,7 +176,7 @@ const Index = () => {
         
         {/* Content */}
         <div className={`absolute inset-0 z-20 flex items-center justify-center px-4 sm:px-6 lg:px-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-          <div className="text-center flex flex-col items-center justify-center max-w-4xl mx-auto">
+          <div className="mt-10 md:mt-0 text-center flex flex-col items-center justify-center max-w-4xl mx-auto">
             <span className="inline-block text-doit-600 px-4 py-1 rounded-full text-base sm:text-lg font-bold tracking-wide hover:text-doit-700">
               Home Services Made Simple
             </span>
@@ -189,7 +189,7 @@ const Index = () => {
               <span className="block mt-2">From plumbing to painting, we've got you covered.</span>
               <span className="block mt-2">Experienced professionals, guaranteed quality, and 24/7 support.</span>
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-8 sm:pt-14 w-full sm:w-auto">
+            <div className="mt-10 md:mt-0 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-8 sm:pt-14 w-full sm:w-auto">
               <Link to="/signup" className="w-full sm:w-auto">
                 <Button className="btn-primary w-full sm:w-auto px-8 py-2.5 text-base sm:text-lg">Get Started</Button>
               </Link>
@@ -241,23 +241,23 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 bg-gradient-to-r from-doit-400 to-orange-500 text-white">
+      <section className="py-12 sm:py-16 md:py-20 px-4 md:px-8 bg-gradient-to-r from-doit-400 to-orange-500 text-white">
         <div className="container-custom text-center">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 animate-fade-in">
+          <div className="max-w-2xl mx-auto md:px-6">
+            <h2 className="text-2xl sm:text-3xl md:text-3.5xl lg:text-4xl font-bold mb-4 md:mb-5 lg:mb-6 animate-fade-in">
               Ready to Get Things Done?
             </h2>
-            <p className="text-white/90 text-base sm:text-lg mb-6 sm:mb-8 animate-fade-in">
+            <p className="text-white/90 text-base sm:text-lg md:text-xl mb-6 md:mb-7 lg:mb-8 animate-fade-in">
               Join thousands of happy homeowners who trust DO!T for their home service needs
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in">
-              <Link to="/signup" className="w-full sm:w-auto">
-                <Button className="w-full sm:w-auto bg-white text-orange-600 hover:bg-white/90 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-medium">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 animate-fade-in">
+              <Link to="/signup" className="w-full sm:w-auto md:flex-1 md:max-w-xs">
+                <Button className="w-full sm:w-auto md:w-full bg-white text-orange-600 hover:bg-white/90 px-6 sm:px-8 py-3 md:py-4 lg:py-6 text-base md:text-lg font-medium">
                   Sign Up as a Homeowner
                 </Button>
               </Link>
-              <Link to="/signup?role=provider" className="w-full sm:w-auto">
-                <Button className="w-full sm:w-auto bg-orange-800 text-white hover:bg-orange-900 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-medium">
+              <Link to="/signup?role=provider" className="w-full sm:w-auto md:flex-1 md:max-w-xs">
+                <Button className="w-full sm:w-auto md:w-full bg-orange-800 text-white hover:bg-orange-900 px-6 sm:px-8 py-3 md:py-4 lg:py-6 text-base md:text-lg font-medium">
                   Join as a Service Provider
                 </Button>
               </Link>
