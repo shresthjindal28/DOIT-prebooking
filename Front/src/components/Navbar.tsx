@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import SearchBar from "@/components/SearchBar";
 import { ShoppingCart } from "lucide-react";
@@ -50,24 +50,24 @@ const Navbar = () => {
   useEffect(() => {
     if (mobileMenuOpen) {
       // Prevent scrolling when menu is open
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
-      document.body.style.height = '100%';
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+      document.body.style.height = "100%";
     } else {
       // Restore scrolling when menu is closed
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
-      document.body.style.height = '';
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.height = "";
     }
 
     return () => {
       // Cleanup function to restore scrolling when component unmounts
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
-      document.body.style.height = '';
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.height = "";
     };
   }, [mobileMenuOpen]);
 
@@ -104,14 +104,14 @@ const Navbar = () => {
           </div>
 
           {/* Search Bar - Responsive width */}
-            <div className="flex items-center w-full lg:w-[22vw] xl:w-[25vw] 2xl:w-[30vw] ">
+          <div className="flex items-center w-full lg:w-[22vw] xl:w-[25vw] 2xl:w-[30vw] ">
             <SearchBar
               onFilterChange={(category) => {
-              // Handle the category change here
-              console.log("Selected category:", category);
+                // Handle the category change here
+                console.log("Selected category:", category);
               }}
             />
-            </div>
+          </div>
 
           {/* Right-side Links - Adjusted spacing */}
           <div className="flex space-x-2 lg:space-x-4 ml-auto items-center">
@@ -133,6 +133,12 @@ const Navbar = () => {
             >
               Support
             </a>
+            <Link
+              to="/about"
+              className="text-black hover:text-white transition-colors"
+            >
+              About Us
+            </Link>
           </div>
 
           {/* Contact Us and Log In aligned in same line with a gap */}
@@ -144,7 +150,6 @@ const Navbar = () => {
               Contact Us
             </a>
           </div>
-          
         </div>
 
         {/* Authentication buttons - Changed from md to lg */}
@@ -194,12 +199,12 @@ const Navbar = () => {
                     <LogOut size={16} className="mr-2" />
                     Logout
                   </button>
-              </div>
-            </div>
-                  <Button variant="ghost" className="text-black" size="icon">
-                    <ShoppingCart className="h-5 w-5" />
-                  </Button>
                 </div>
+              </div>
+              <Button variant="ghost" className="text-black" size="icon">
+                <ShoppingCart className="h-5 w-5" />
+              </Button>
+            </div>
           ) : (
             <>
               <div className="flex gap-1">
@@ -222,12 +227,12 @@ const Navbar = () => {
 
         {/* Mobile/Tablet menu button - Updated breakpoint */}
 
-          <div className="lg:hidden flex items-center justify-between w-full p-2 z-50">
-            <Link to="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold text-doit-400 tracking-tight animate-pulse-gentle">
-                <img className="h-8 w-9" src={Logo} alt="logo" />
-              </span>
-            </Link>
+        <div className="lg:hidden flex items-center justify-between w-full p-2 z-50">
+          <Link to="/" className="flex items-center space-x-2">
+            <span className="text-2xl font-bold text-doit-400 tracking-tight animate-pulse-gentle">
+              <img className="h-8 w-9" src={Logo} alt="logo" />
+            </span>
+          </Link>
           <button
             className="text-black p-2 hover:bg-gray-100 rounded-full transition-colors"
             onClick={toggleMobileMenu}
@@ -235,8 +240,7 @@ const Navbar = () => {
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-          </div>
-
+        </div>
       </div>
 
       {/* Mobile/Tablet menu - Updated breakpoint and styling */}
@@ -262,12 +266,19 @@ const Navbar = () => {
               <Home size={16} className="mr-3" />
               Home
             </Link>
-            
+
             <Link
               to="/services"
               className="flex items-center text-foreground py-3 px-4 hover:bg-gray-100 rounded-md transition-colors"
             >
               Services
+            </Link>
+
+            <Link
+              to="/about"
+              className="text-black hover:text-white transition-colors"
+            >
+              About Us
             </Link>
 
             <Link
@@ -319,8 +330,8 @@ const Navbar = () => {
                   <Calendar size={16} className="mr-3" />
                   Appointments
                 </Link>
-                <Link 
-                  to="/settings" 
+                <Link
+                  to="/settings"
                   className="flex items-center py-3 px-4 hover:bg-gray-100 rounded-md transition-colors"
                 >
                   <Settings size={16} className="mr-3" />

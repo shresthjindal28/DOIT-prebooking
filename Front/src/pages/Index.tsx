@@ -8,6 +8,7 @@ import ServiceMap from '@/components/ServiceMap';
 import gsap from 'gsap';
 // import videobg from '@/assets/video-bg.mp4';
 import videobg from '../assests/video-bg.mp4'
+
 import Footer from "./Footer";
 
 import {

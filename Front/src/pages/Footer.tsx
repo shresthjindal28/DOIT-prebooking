@@ -1,8 +1,19 @@
+import { useState, useEffect } from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { IoLocationSharp, IoCall } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
+  const websiteTexts = [
+    "🌍 Explore Our Platform"
+  ];
+
+  const [buttonText, setButtonText] = useState(websiteTexts[0]);
+
+  useEffect(() => {
+    setButtonText(websiteTexts[Math.floor(Math.random() * websiteTexts.length)]);
+  }, []);
+
   return (
     <footer className="bg-gray-900 text-gray-300 py-8 md:py-10">
       <div className="max-w-6xl mx-auto px-4 md:px-5">
@@ -14,10 +25,10 @@ const Footer = () => {
               Your all-in-one solution for connecting with professional service providers across all industries.
             </p>
             <div className="hidden md:flex justify-center md:justify-start space-x-4 mt-3 md:mt-4 text-gray-400">
-              <FaFacebookF className="cursor-pointer hover:text-white" />
-              <FaTwitter className="cursor-pointer hover:text-white" />
-              <FaInstagram className="cursor-pointer hover:text-white" />
-              <FaLinkedinIn className="cursor-pointer hover:text-white" />
+              <FaFacebookF className="cursor-pointer hover:text-white transition duration-300 transform hover:scale-110" />
+              <FaTwitter className="cursor-pointer hover:text-white transition duration-300 transform hover:scale-110" />
+              <FaInstagram className="cursor-pointer hover:text-white transition duration-300 transform hover:scale-110" />
+              <FaLinkedinIn className="cursor-pointer hover:text-white transition duration-300 transform hover:scale-110" />
             </div>
           </div>
 
@@ -26,7 +37,12 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-white">Quick Links</h3>
             <ul className="mt-2 md:mt-3 space-y-1 md:space-y-2">
               {["Home", "About Us", "Contact", "Become a Provider"].map((item, index) => (
-                <li key={index} className="hover:text-yellow-400 cursor-pointer text-sm">{item}</li>
+                <li
+                  key={index}
+                  className="hover:text-yellow-400 cursor-pointer text-sm transition duration-300 hover:translate-x-1"
+                >
+                  {item}
+                </li>
               ))}
             </ul>
           </div>
@@ -49,12 +65,24 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="flex md:hidden justify-center md:justify-start space-x-4 mt-3 md:mt-4 text-gray-400 gap-6">
-              <FaFacebookF className="cursor-pointer hover:text-white" />
-              <FaTwitter className="cursor-pointer hover:text-white" />
-              <FaInstagram className="cursor-pointer hover:text-white" />
-              <FaLinkedinIn className="cursor-pointer hover:text-white" />
-            </div>
+        </div>
+
+        {/* 🌍 Main Website Button */}
+        <div className="flex flex-col items-center mt-10">
+          <button
+            onClick={() => window.location.href = "http://d0lt.com"}
+            className="px-8 py-3 text-lg font-semibold text-yellow-500 bg-yellow-100 bg-opacity-20 border border-white shadow-md shadow-orange-500/50 rounded-full transition duration-300 hover:shadow-orange-400/80 hover:scale-110 relative overflow-hidden before:absolute before:content-[''] before:top-0 before:-left-[100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-[1500ms] hover:before:left-[100%]"
+          >
+            <span className="relative z-10">{buttonText}</span>
+          </button>
+
+          {/* Social Media Icons Below the Button */}
+          <div className="flex justify-center space-x-4 mt-5 text-gray-400">
+            <FaFacebookF className="cursor-pointer hover:text-yellow-400 transition duration-300 transform hover:scale-110" />
+            <FaTwitter className="cursor-pointer hover:text-yellow-400 transition duration-300 transform hover:scale-110" />
+            <FaInstagram className="cursor-pointer hover:text-yellow-400 transition duration-300 transform hover:scale-110" />
+            <FaLinkedinIn className="cursor-pointer hover:text-yellow-400 transition duration-300 transform hover:scale-110" />
+          </div>
         </div>
 
         {/* Newsletter Subscription */}
@@ -67,7 +95,7 @@ const Footer = () => {
               placeholder="Enter your email"
               className="flex-1 px-4 py-2 rounded-l sm:rounded-l bg-gray-800 border border-gray-700 focus:outline-none focus:border-yellow-400"
             />
-            <button className="mt-2 sm:mt-0 px-6 py-2 bg-yellow-400 text-gray-900 font-semibold rounded sm:rounded-l-none rounded-r hover:bg-yellow-500 transition duration-300">
+            <button className="mt-2 sm:mt-0 px-6 py-2 bg-yellow-400 text-gray-900 font-semibold rounded sm:rounded-l-none rounded-r hover:bg-yellow-300 transition duration-300">
               Subscribe
             </button>
           </div>
