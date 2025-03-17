@@ -13,7 +13,7 @@ const Footer = () => {
             <p className="mt-2 md:mt-3 text-sm">
               Your all-in-one solution for connecting with professional service providers across all industries.
             </p>
-            <div className="flex justify-center md:justify-start space-x-4 mt-3 md:mt-4 text-gray-400">
+            <div className="hidden md:flex justify-center md:justify-start space-x-4 mt-3 md:mt-4 text-gray-400">
               <FaFacebookF className="cursor-pointer hover:text-white" />
               <FaTwitter className="cursor-pointer hover:text-white" />
               <FaInstagram className="cursor-pointer hover:text-white" />
@@ -39,7 +39,7 @@ const Footer = () => {
                 <IoLocationSharp className="text-yellow-400" />
                 <span>123 Service Street, Business District, City, 10001</span>
               </li>
-              <li className="flex justify-center md:justify-start items-center space-x-2">
+              <li className="flex flex-wrap justify-center md:justify-start items-center space-x-2">
                 <IoCall className="text-yellow-400" />
                 <span>(123) 456-7890</span>
               </li>
@@ -49,6 +49,12 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+          <div className="flex md:hidden justify-center md:justify-start space-x-4 mt-3 md:mt-4 text-gray-400 gap-6">
+              <FaFacebookF className="cursor-pointer hover:text-white" />
+              <FaTwitter className="cursor-pointer hover:text-white" />
+              <FaInstagram className="cursor-pointer hover:text-white" />
+              <FaLinkedinIn className="cursor-pointer hover:text-white" />
+            </div>
         </div>
 
         {/* Newsletter Subscription */}
