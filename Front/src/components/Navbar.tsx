@@ -15,6 +15,7 @@ const Navbar = () => {
   const { isAuthenticated, user, logout } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [LoginClicked, setLoginClicked] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -45,7 +46,7 @@ const Navbar = () => {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
-      }`}
+      } ${LoginClicked ? "bg-white" : "bg-transparent"} ${isAuthenticated ? "bg-transparent" :"bg-transparent"} `}
     >
       <div className="container-custom flex items-center justify-between px-4 lg:px-6">
         <div className="flex-1 flex justify-start">
@@ -86,12 +87,12 @@ const Navbar = () => {
             ) : (
               <>
                 <Link to="/login">
-                  <Button variant="ghost" className="flex items-center underline text-red-500">
+                  <Button variant="ghost" onClick={() => setLoginClicked(true)} className="flex items-center underline text-red-500">
                     Login
                   </Button>
                 </Link>
                 <Link to="/signup">
-                  <Button className="relative px-6 py-3 font-bold text-red-500 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-full shadow-lg transition-all duration-300 ease-in-out hover:brightness-110 hover:shadow-xl">Join Us - It's Free</Button>
+                  <Button  onClick={() => setLoginClicked(true)} className="relative px-6 py-3 font-bold text-red-500 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-full shadow-lg transition-all duration-300 ease-in-out hover:brightness-110 hover:shadow-xl">Join Us - It's Free</Button>
                 </Link>
               </>
             )}
@@ -117,10 +118,10 @@ const Navbar = () => {
             {!isAuthenticated && (
               <div className="flex flex-col space-y-3 mt-4">
                 <Link to="/login">
-                  <Button variant="outline" className="underline w-full">Login</Button>
+                  <Button  onClick={() => setLoginClicked(true)} variant="outline" className="underline w-full">Login</Button>
                 </Link>
                 <Link to="/signup">
-                  <Button className="w-full bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 text-red-500 font-bold">Join Us - It's Free</Button>
+                  <Button  onClick={() => setLoginClicked(true)} className="w-full bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 text-red-500 font-bold">Join Us - It's Free</Button>
                 </Link>
               </div>
             )}

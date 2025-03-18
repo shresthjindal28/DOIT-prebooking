@@ -176,7 +176,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-doit-100/50 to-orange-100/10 z-10" />
         
         {/* Content */}
-        <div className={`absolute inset-0 z-20 flex items-start justify-center px-4 sm:px-6 lg:px-8 pt-[45vh] sm:pt-[50vh] md:pt-[45vh] lg:pt-[30vh] xl:pt-[45vh] transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+        <div className={`absolute inset-0 z-20 flex items-start justify-center px-4 sm:px-6 lg:px-8 pt-[45vh] sm:pt-[50vh] md:pt-[45vh] lg:pt-[30vh] xl:pt-[35vh] transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
           <div className="text-center flex flex-col items-center justify-center max-w-4xl mx-auto">
             <span className="inline-block text-doit-600 px-4 py-1 rounded-full text-sm sm:text-base lg:text-lg font-bold tracking-wide hover:text-doit-700">
               Home Services Made Simple

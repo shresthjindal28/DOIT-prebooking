@@ -7,7 +7,19 @@ dotenv.config();
 
 connectDB();
 const app = express();
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:8080", // Local frontend (for development)
+  "https://doit-prebooking-test.vercel.app",
+   // Production frontend
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true, // Allow cookies if needed
+  })
+);
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

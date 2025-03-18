@@ -6,6 +6,7 @@ import UserDashboard from './UserDashboard';
 import ProviderDashboard from './ProviderDashboard';
 import { Loader2 } from 'lucide-react';
 
+
 const Dashboard = () => {
   const { isAuthenticated, user, loading, isAdmin } = useAuth();
   const navigate = useNavigate();
