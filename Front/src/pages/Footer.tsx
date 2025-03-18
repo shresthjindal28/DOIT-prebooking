@@ -14,6 +14,13 @@ const Footer = () => {
     setButtonText(websiteTexts[Math.floor(Math.random() * websiteTexts.length)]);
   }, []);
 
+  const socialLinks = {
+    facebook: "https://www.facebook.com/profile.php?id=61574207312609",
+    twitter: "https://x.com/d0it_saas",
+    instagram: "https://www.instagram.com/d0it2025",
+    linkedin: "https://www.linkedin.com/company/d0it"
+  };
+
   return (
     <footer className="bg-gray-900 text-gray-300 py-8 md:py-10">
       <div className="max-w-6xl mx-auto px-4 md:px-5">
@@ -25,10 +32,10 @@ const Footer = () => {
               Your all-in-one solution for connecting with professional service providers across all industries.
             </p>
             <div className="hidden md:flex justify-center md:justify-start space-x-4 mt-3 md:mt-4 text-gray-400">
-              <FaFacebookF className="cursor-pointer hover:text-white transition duration-300 transform hover:scale-110" />
-              <FaTwitter className="cursor-pointer hover:text-white transition duration-300 transform hover:scale-110" />
-              <FaInstagram className="cursor-pointer hover:text-white transition duration-300 transform hover:scale-110" />
-              <FaLinkedinIn className="cursor-pointer hover:text-white transition duration-300 transform hover:scale-110" />
+              <FaFacebookF onClick={() => window.open(socialLinks.facebook, '_blank')} className="cursor-pointer hover:text-white transition duration-300 transform hover:scale-110" />
+              <FaTwitter onClick={() => window.open(socialLinks.twitter, '_blank')} className="cursor-pointer hover:text-white transition duration-300 transform hover:scale-110" />
+              <FaInstagram onClick={() => window.open(socialLinks.instagram, '_blank')} className="cursor-pointer hover:text-white transition duration-300 transform hover:scale-110" />
+              <FaLinkedinIn onClick={() => window.open(socialLinks.linkedin, '_blank')} className="cursor-pointer hover:text-white transition duration-300 transform hover:scale-110" />
             </div>
           </div>
 
@@ -78,10 +85,10 @@ const Footer = () => {
 
           {/* Social Media Icons Below the Button */}
           <div className="md:hidden flex justify-center space-x-4 mt-5 text-gray-400">
-            <FaFacebookF className="cursor-pointer hover:text-yellow-400 transition duration-300 transform hover:scale-110" />
-            <FaTwitter className="cursor-pointer hover:text-yellow-400 transition duration-300 transform hover:scale-110" />
-            <FaInstagram className="cursor-pointer hover:text-yellow-400 transition duration-300 transform hover:scale-110" />
-            <FaLinkedinIn className="cursor-pointer hover:text-yellow-400 transition duration-300 transform hover:scale-110" />
+            <FaFacebookF onClick={() => window.open(socialLinks.facebook, '_blank')} className="cursor-pointer hover:text-yellow-400 transition duration-300 transform hover:scale-110" />
+            <FaTwitter onClick={() => window.open(socialLinks.twitter, '_blank')} className="cursor-pointer hover:text-yellow-400 transition duration-300 transform hover:scale-110" />
+            <FaInstagram onClick={() => window.open(socialLinks.instagram, '_blank')} className="cursor-pointer hover:text-yellow-400 transition duration-300 transform hover:scale-110" />
+            <FaLinkedinIn onClick={() => window.open(socialLinks.linkedin, '_blank')} className="cursor-pointer hover:text-yellow-400 transition duration-300 transform hover:scale-110" />
           </div>
         </div>
 
