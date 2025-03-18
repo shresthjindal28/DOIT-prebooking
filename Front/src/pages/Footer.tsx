@@ -77,7 +77,7 @@ const Footer = () => {
           </button>
 
           {/* Social Media Icons Below the Button */}
-          <div className="flex justify-center space-x-4 mt-5 text-gray-400">
+          <div className="md:hidden flex justify-center space-x-4 mt-5 text-gray-400">
             <FaFacebookF className="cursor-pointer hover:text-yellow-400 transition duration-300 transform hover:scale-110" />
             <FaTwitter className="cursor-pointer hover:text-yellow-400 transition duration-300 transform hover:scale-110" />
             <FaInstagram className="cursor-pointer hover:text-yellow-400 transition duration-300 transform hover:scale-110" />
