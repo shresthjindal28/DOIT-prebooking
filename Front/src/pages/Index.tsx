@@ -160,15 +160,15 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="h-[100vh] relative overflow-hidden">
+      <section className="h-screen relative overflow-hidden">
         {/* Background video */}
-        <div ref={bgImageRef} className=" inset-0 w-full h-[100vh]">
+        <div ref={bgImageRef} className="absolute inset-0 w-full h-[95vh]">
           <video
             src={videobg}
             muted
             loop 
             autoPlay
-            className="w-full h-[90vh] object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
         
@@ -176,26 +176,26 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-doit-100/50 to-orange-100/10 z-10" />
         
         {/* Content */}
-        <div className={`absolute inset-0 z-20 flex items-center justify-center px-4 sm:px-6 lg:px-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-          <div className="mt-10 md:mt-0 text-center flex flex-col items-center justify-center max-w-4xl mx-auto">
-            <span className="inline-block text-doit-600 px-4 py-1 rounded-full text-base sm:text-lg font-bold tracking-wide hover:text-doit-700">
+        <div className={`absolute inset-0 z-20 flex items-start justify-center px-4 sm:px-6 lg:px-8 pt-[45vh] sm:pt-[50vh] md:pt-[45vh] lg:pt-[30vh] xl:pt-[45vh] transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+          <div className="text-center flex flex-col items-center justify-center max-w-4xl mx-auto">
+            <span className="inline-block text-doit-600 px-4 py-1 rounded-full text-sm sm:text-base lg:text-lg font-bold tracking-wide hover:text-doit-700">
               Home Services Made Simple
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-doit-900 mt-4 sm:mt-6 mb-2 sm:mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-doit-900 mt-2 sm:mt-3 md:mt-4 mb-2">
               Your One-Stop Solution for <br className="hidden sm:block" />
               <span className="text-orange-600">Home Services</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl font-semibold text-black/90 max-w-lg mx-auto mt-4 sm:mt-8 mb-3">
+            <p className="text-sm sm:text-base md:text-lg xl:text-xl font-semibold text-black/90 max-w-lg mx-auto mt-2 sm:mt-4 mb-2">
               DO!T connects you with skilled professionals to handle all your home service needs. 
-              <span className="block mt-2">From plumbing to painting, we've got you covered.</span>
-              <span className="block mt-2">Experienced professionals, guaranteed quality, and 24/7 support.</span>
+              <span className="block mt-1 sm:mt-2">From plumbing to painting, we've got you covered.</span>
+              <span className="block mt-1 sm:mt-2">Experienced professionals, guaranteed quality, and 24/7 support.</span>
             </p>
-            <div className="mt-10 md:mt-0 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-8 sm:pt-14 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-4 sm:mt-6 md:mt-8 w-full sm:w-auto">
               <Link to="/signup" className="w-full sm:w-auto">
-                <Button className="btn-primary w-full sm:w-auto px-8 py-2.5 text-base sm:text-lg">Get Started</Button>
+                <Button className="btn-primary w-full sm:w-auto px-6 py-2 text-sm sm:text-base">Get Started</Button>
               </Link>
               <Link to="/services" className="w-full sm:w-auto">
-                <Button variant="outline" className="btn-outline w-full sm:w-auto px-8 py-2.5 text-base sm:text-lg">Explore Services</Button>
+                <Button variant="outline" className="btn-outline w-full sm:w-auto px-6 py-2 text-sm sm:text-base">Explore Services</Button>
               </Link>
             </div>
           </div>
