@@ -71,7 +71,7 @@ const Footer = () => {
         <div className="flex flex-col items-center mt-10">
           <button
             onClick={() => window.location.href = "http://d0lt.com"}
-            className="px-8 py-3 text-lg font-semibold text-yellow-500 bg-yellow-100 bg-opacity-20 border border-white shadow-md shadow-orange-500/50 rounded-full transition duration-300 hover:shadow-orange-400/80 hover:scale-110 relative overflow-hidden before:absolute before:content-[''] before:top-0 before:-left-[100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-[1500ms] hover:before:left-[100%]"
+            className="px-8 py-3 text-lg font-semibold text-yellow-500  bg-transparent border border-white shadow-md shadow-orange-500/50 rounded-full transition duration-300 hover:shadow-orange-400/80 hover:scale-110 relative overflow-hidden before:absolute before:content-[''] before:top-0 before:-left-[100%] before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-[1500ms] hover:before:left-[100%]"
           >
             <span className="relative z-10">{buttonText}</span>
           </button>
