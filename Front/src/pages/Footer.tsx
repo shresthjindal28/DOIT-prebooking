@@ -59,7 +59,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4 text-center md:text-left">
+          <div className="space-y-4 flex flex-col  text-center md:text-left">
             <h3 className="text-xl font-semibold text-white">Quick Links</h3>
             <ul className="space-y-4 flex flex-col">
               <Link
@@ -114,12 +114,12 @@ const Footer = () => {
         </div>
 
         {/* Website Button and Newsletter Section */}
-        <div className="mt-6  flex justify-between items-center">
+        <div className="mt-6  flex flex-col md:flex-row justify-between items-center">
           {/* Button */}
           <div className="text-center md:text-left">
             <button
               onClick={() => (window.location.href = "http://d0lt.com")}
-              className="w-full md:w-auto px-8 py-3 text-lg font-semibold text-yellow-500 bg-transparent border border-white shadow-md shadow-orange-500/50 rounded-full transition duration-300 hover:shadow-orange-400/80 hover:scale-105 relative overflow-hidden group"
+              className="w-full md:w-auto px-8 py-3 text-lg font-semibold text-yellow-500 bg-transparent border border-white shadow-md shadow-orange-500/50 rounded-full transition duration-300 hover:shadow-orange-400/80 hover:scale-105 relative overflow-hidden group mb-10 md:mb-0"
             >
               <span className="relative z-10">{buttonText}</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1500ms]"></div>
@@ -127,7 +127,7 @@ const Footer = () => {
           </div>
 
           {/* Newsletter */}
-          <div className="w-[28vw] space-y-4 text-center md:text-left">
+          <div className="md:w-[28vw] space-y-4 text-center md:text-left">
             {/* <h3 className="text-xl font-semibold text-white">Newsletter</h3> */}
             <p className="text-sm">
               Stay updated with our latest services and offers

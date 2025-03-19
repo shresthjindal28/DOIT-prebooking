@@ -180,7 +180,7 @@ const Index = () => {
 
         {/* Content */}
         <div
-          className={`mt-36 relative z-20 text-center flex flex-col items-center justify-center max-w-3xl px-4 sm:px-6 md:px-8 transition-all duration-700 ${
+          className={`mt-48 relative z-20 text-center flex flex-col items-center justify-center max-w-3xl px-4 sm:px-6 md:px-8 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
@@ -190,7 +190,7 @@ const Index = () => {
           </span>
 
           {/* Main Heading */}
-          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mt-6 leading-tight drop-shadow-lg">
+          <h1 className="text-white text-2xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mt-6 leading-tight drop-shadow-lg">
             Your One-Stop Solution {" "}
             <span className="text-red-700">Maintenance Services</span>
           </h1>
@@ -203,7 +203,7 @@ const Index = () => {
           </p>
 
           {/* Buttons */}
-          <div className="mt-20 flex flex-col sm:flex-row gap-4 mt-22 w-full sm:w-auto">
+          <div className="mt-12 flex flex-col sm:flex-row gap-4 mt-22 w-full sm:w-auto">
             <Link to="/signup">
               <Button className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-600 text-red-500 px-6 py-3 text-lg md:text-xl font-medium rounded-lg shadow-lg transition w-full sm:w-auto">
                 Get Started
