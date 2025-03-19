@@ -120,7 +120,7 @@ const createDefaultAdmin = async () => {
         adminId: "admin123",
         name: "Super Admin",
         password: 123,
-        role:"admin"
+        role:"admin",
       });
       console.log("Default admin created.");
     } else {
