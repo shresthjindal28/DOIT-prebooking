@@ -42,6 +42,15 @@ const Navbar = () => {
     };
   }, [mobileMenuOpen]);
 
+  const scrollToFeatured = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.getElementById('featured');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setMobileMenuOpen(false);
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -57,6 +66,20 @@ const Navbar = () => {
 
         <nav className="hidden lg:flex items-center justify-center flex-1">
           <div className="flex items-center space-x-6 border px-3 py-2 rounded-full bg-white">
+            <Link 
+              to="/" 
+              onClick={(e) => {
+                e.preventDefault();
+                if (location.pathname !== '/') {
+                  navigate('/', { state: { scrollToFeatured: true } });
+                } else {
+                  scrollToFeatured(e);
+                }
+              }} 
+              className="text-black transition-colors duration-300 hover:text-red-600"
+            >
+              Featured
+            </Link>
             <Link to="/services" className="text-black transition-colors duration-300 hover:text-red-600">Services</Link>
             <Link to="/about" className="text-black transition-colors duration-300 hover:text-red-600">About Us</Link>
             <Link to="/contact" className="text-black transition-colors duration-300 hover:text-red-600">Contact Us</Link>
@@ -112,7 +135,9 @@ const Navbar = () => {
           </div>
           <nav className="flex flex-col space-y-4">
             <Link to="/" className="py-2 transition-colors duration-300 hover:text-red-600">Home</Link>
+            <a href="#featured" onClick={scrollToFeatured} className="py-2 transition-colors duration-300 hover:text-red-600">Featured</a>
             <Link to="/services" className="py-2 transition-colors duration-300 hover:text-red-600">Services</Link>
+            <Link to="#" className="text-black transition-colors duration-300 hover:text-red-600">Featured</Link>
             <Link to="/about" className="py-2 transition-colors duration-300 hover:text-red-600">About Us</Link>
             <Link to="/contact" className="py-2 transition-colors duration-300 hover:text-red-600">Contact Us</Link>
             {!isAuthenticated && (

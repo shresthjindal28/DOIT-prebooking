@@ -1,9 +1,9 @@
-
-import { useState } from 'react';
-import { Helmet } from 'react-helmet';
-import ServiceBrowser from '@/components/ServiceBrowser';
-import { Button } from '@/components/ui/button';
-import FeaturedServices from '@/components/FeaturedServices';
+import { useState } from "react";
+import { Helmet } from "react-helmet";
+import ServiceBrowser from "@/components/ServiceBrowser";
+import { Button } from "@/components/ui/button";
+import Service from '../assests/service.png';
+import { Link } from "react-router-dom";
 
 const Services = () => {
   return (
@@ -11,48 +11,66 @@ const Services = () => {
       <Helmet>
         <title>Services | DO!T - Home Services Platform</title>
       </Helmet>
-      
+
       {/* Hero Section */}
-      <section className="py-12 bg-gradient-to-b from-doit-50 to-white">
+      <section className="py-8 md:py-12 bg-gradient-to-b from-doit-50 to-white">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="h1 mb-4 text-doit-900">Our Services</h1>
-            <p className="text-lg text-foreground/80 mb-8">
-              From home repairs to specialized services, we connect you with skilled professionals for all your needs. Browse our categories below.
-            </p>
+          <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 max-w-6xl mx-auto">
+            <div className="w-full md:w-1/2 mt-8 md:mt-0">
+              <img
+                src={Service}
+                alt="Professional service providers"
+                className="rounded-lg shadow-lg w-full"
+              />
+            </div>
+            <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
+              <h1 className="h1 text-doit-900 text-3xl md:text-4xl lg:text-5xl">Our Services</h1>
+              <p className="text-base md:text-lg text-foreground/80">
+                From home repairs to specialized services, we connect you with
+                skilled professionals for all your needs. Browse our categories
+                below.
+              </p>
+              <p className="text-sm md:text-md text-foreground/70">
+                Our platform ensures quality service delivery through verified
+                professionals, transparent pricing, and a hassle-free booking
+                experience. Whether you need home maintenance, cleaning, or
+                specialized technical services, we've got you covered.
+              </p>
+            </div>
           </div>
         </div>
       </section>
-      
-      {/* Featured Services Section */}
-      <FeaturedServices />
-      
+
       {/* Services Browse Section */}
-      <section className="py-16">
+      <section className="py-8 md:py-16">
         <div className="container-custom">
-          <div className="text-center mb-10">
-            <h2 className="h2 mb-3">Browse All Services</h2>
-            <p className="text-foreground/70 max-w-2xl mx-auto">
-              Find the perfect service for your home needs
+          <div className="text-center mb-6 md:mb-10">
+            <h2 className="h2 mb-3 text-2xl md:text-3xl lg:text-4xl">Browse All Services</h2>
+            <p className="text-foreground/70 max-w-2xl mx-auto text-sm md:text-base">
+              Find the perfect service for your home needs with our extensive
+              network of verified professionals
             </p>
           </div>
-          
+
           <ServiceBrowser />
         </div>
       </section>
-      
+
       {/* CTA Section */}
-      <section className="py-14 bg-doit-400/10">
-        <div className="container-custom">
-          <div className="bg-white rounded-xl shadow-md p-8 max-w-4xl mx-auto text-center">
-            <h3 className="h3 mb-4">Don't see what you're looking for?</h3>
-            <p className="text-foreground/70 mb-6">
+      <section className="py-8 md:py-14 bg-doit-400/10">
+        <div className="container-custom px-4 md:px-0">
+          <div className="bg-white rounded-xl shadow-md p-6 md:p-8 max-w-4xl mx-auto text-center">
+            <h3 className="h3 mb-4 text-xl md:text-2xl">Don't see what you're looking for?</h3>
+            <p className="text-foreground/70 mb-6 text-sm md:text-base">
               We're constantly expanding our network of service providers.
-              Contact us to request a service or learn more about becoming a provider.
+              Contact us to request a service or learn more about becoming a
+              provider.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button className="btn-primary">Request a Service</Button>
-              <Button variant="outline" className="btn-outline">Become a Provider</Button>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+              <Link to={"/signup"} className="btn-primary w-full md:w-auto">Request a Service</Link>
+              <Link to={"/signup"} className="btn-outline w-full md:w-auto">
+                Become a Provider
+              </Link>
             </div>
           </div>
         </div>
