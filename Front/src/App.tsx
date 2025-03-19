@@ -16,6 +16,7 @@ import Services from "./pages/Services";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { useAuth } from "@/context/AuthContext";
+import AdminLogin from "./pages/AdminLogin";
 
 const queryClient = new QueryClient();
 
@@ -23,12 +24,15 @@ const queryClient = new QueryClient();
 const ProtectedAdminRoute = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated, isAdmin, loading } = useAuth();
   
+  console.log("Auth status:", { isAuthenticated, isAdmin, loading });
+
   if (loading) return null;
-  
+
   if (!isAuthenticated || !isAdmin) {
-    return <Navigate to="/login" replace />;
+    console.log("Redirecting to /admin-login");
+    return <Navigate to="/admin-login" replace />;
   }
-  
+
   return <>{children}</>;
 };
 
@@ -50,6 +54,7 @@ const App = () => (
               <Route path="/services" element={<Services />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/admin-login" element={<AdminLogin />} />
               <Route 
                 path="/admin" 
                 element={
