@@ -1,10 +1,11 @@
 
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation,useNavigate } from 'react-router-dom';
 import AuthForm from '@/components/AuthForm';
 import { useEffect, useState } from 'react';
 
 const Signup = () => {
   const location = useLocation();
+  const navigate=useNavigate()
   const [role, setRole] = useState<'homeowner' | 'provider'>('homeowner');
   
   useEffect(() => {
@@ -13,9 +14,10 @@ const Signup = () => {
     const roleParam = params.get('role');
     if (roleParam === 'provider') {
       setRole('provider');
+    }else if (roleParam === 'admin') {
+      navigate('/AdminLogin'); // Redirect to AdminLogin.tsx
     }
-  }, [location]);
-  
+  }, [location,navigate]);
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex-1 flex flex-col md:flex-row">

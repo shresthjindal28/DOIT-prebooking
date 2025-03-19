@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const ServiceProvider = require("../Models/ServiceProvider");
 const Homeowner = require("../Models/Homeowner");
-
+const Admin =require("../Models/Admin")
 // Function to generate JWT token
 const generateToken = (id, role) => {
   return jwt.sign({ id, role }, process.env.JWT_SECRET, { expiresIn:"7d" });
@@ -110,4 +110,56 @@ const getuser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, loginUser, generateToken, getuser };
+
+const createDefaultAdmin = async () => {
+  try {
+    const existingAdmin = await Admin.findOne({ adminId: "admin123" });
+    if (!existingAdmin) {
+    //  const hashedPassword = await bcrypt.hash("adminpassword", 10);
+      await Admin.create({
+        adminId: "admin123",
+        name: "Super Admin",
+        password: 123,
+        role:"admin"
+      });
+      console.log("Default admin created.");
+    } else {
+      console.log("Admin already exists.");
+    }
+  } catch (error) {
+    console.error("Error creating admin:", error);
+  }
+};
+
+
+
+const getadmin = async (req, res) => {
+  try {
+   
+    const { adminId, password } = req.body;
+    if (!adminId || !password) {
+      return res.status(400).json({ message: "Admin ID and password are required" });
+    }
+
+    const admin = await Admin.findOne({ adminId, role: "admin" });
+
+    if (!admin) {
+      console.log("Admin not found"); // ✅ Log admin lookup result
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    if (admin.password !== password) {
+      console.log("Password mismatch"); // ✅ Log password check
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    const token = jwt.sign({ id: admin._id, role: "admin" }, process.env.JWT_SECRET, { expiresIn: "1h" });
+
+    res.json({ token, user: { name: admin.name, adminId: admin.adminId, role: "admin" } });
+  } catch (error) {
+    console.error("Server error:", error); // ✅ Log full error
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+module.exports = { registerUser, loginUser, generateToken, getuser,createDefaultAdmin,getadmin};

@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const connectDB = require("./Config/Db.js");
 const cors = require("cors");
 const authRoutes= require('./Routes/authRoutes.js')
+const { createDefaultAdmin } = require("./Controllers/authController.js");
 dotenv.config();
 
 connectDB();
@@ -29,6 +30,7 @@ app.get('/',function(req,res){
 
 app.use('/api/auth',authRoutes)
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT || 5000,async () => {
   console.log(`server is running on ${process.env.PORT}`);
+  await createDefaultAdmin()
 });

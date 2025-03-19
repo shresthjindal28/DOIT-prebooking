@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthForm from '@/components/AuthForm';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -6,9 +6,14 @@ import { User, Wrench, ShieldCheck } from 'lucide-react';
 
 const Login = () => {
   const [loginMode, setLoginMode] = useState<'default' | 'provider' | 'user' | 'admin'>('default');
+  const navigate = useNavigate();
 
   const handleSelectMode = (mode: 'provider' | 'user' | 'admin') => {
-    setLoginMode(mode);
+    if (mode === 'admin') {
+      navigate('/admin-login'); // Redirect to the admin login page
+    } else {
+      setLoginMode(mode);
+    }
   };
 
   return (
@@ -74,7 +79,6 @@ const Login = () => {
                   <h3 className="font-medium">
                     {loginMode === 'user' && 'Homeowner Login'}
                     {loginMode === 'provider' && 'Service Provider Login'}
-                    {loginMode === 'admin' && 'Admin Login'}
                   </h3>
                   <Button 
                     variant="ghost" 
@@ -86,7 +90,7 @@ const Login = () => {
                 </div>
                 <AuthForm 
                   mode="login" 
-                  role={loginMode === 'user' ? 'homeowner' : loginMode === 'provider' ? 'provider' : 'admin'} 
+                  role={loginMode === 'user' ? 'homeowner' : 'provider'} 
                 />
               </>
             )}
