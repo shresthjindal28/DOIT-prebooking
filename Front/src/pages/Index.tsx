@@ -176,23 +176,23 @@ const Index = () => {
         </div>
 
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/2 md:bg-black/2 backdrop-blur-[3px] z-10" />
+        <div className="absolute inset-0 bg-black/2 md:bg-black/2 backdrop-blur-[1px] z-10" />
 
         {/* Content */}
         <div
-          className={`mt-14 relative z-20 text-center flex flex-col items-center justify-center max-w-3xl px-4 sm:px-6 md:px-8 transition-all duration-700 ${
+          className={`mt-36 relative z-20 text-center flex flex-col items-center justify-center max-w-3xl px-4 sm:px-6 md:px-8 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
           {/* Tagline */}
-          <span className="inline-block bg-orange-500 text-white px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base md:text-lg font-semibold tracking-wide shadow-md hover:bg-orange-600 transition">
+          <span className="inline-block bg-transparent border text-red-600 px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base md:text-lg font-semibold tracking-wide  transition ">
             Maintenance Made Simple
           </span>
 
           {/* Main Heading */}
           <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mt-6 leading-tight drop-shadow-lg">
-            Your One-Stop Solution for{" "}
-            <span className="text-orange-400">Maintenance Services</span>
+            Your One-Stop Solution {" "}
+            <span className="text-red-700">Maintenance Services</span>
           </h1>
 
           {/* Description */}
@@ -203,9 +203,9 @@ const Index = () => {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-14 w-full sm:w-auto">
+          <div className="mt-20 flex flex-col sm:flex-row gap-4 mt-22 w-full sm:w-auto">
             <Link to="/signup">
-              <Button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 text-lg md:text-xl font-medium rounded-lg shadow-lg transition w-full sm:w-auto">
+              <Button className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-600 text-red-500 px-6 py-3 text-lg md:text-xl font-medium rounded-lg shadow-lg transition w-full sm:w-auto">
                 Get Started
               </Button>
             </Link>
@@ -283,7 +283,7 @@ const Index = () => {
                 className="w-full sm:w-auto md:flex-1 md:max-w-xs"
               >
                 <Button className="w-full sm:w-auto md:w-full bg-white text-orange-600 hover:bg-white/90 px-6 sm:px-8 py-3 md:py-4 lg:py-6 text-base md:text-lg font-medium">
-                  Sign Up as a Homeowner
+                  Sign Up as a User
                 </Button>
               </Link>
               <Link

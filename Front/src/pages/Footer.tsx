@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import { IoLocationSharp, IoCall } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const websiteTexts = ["🌍 Explore Our Platform"];
@@ -60,19 +61,37 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="space-y-4 text-center md:text-left">
             <h3 className="text-xl font-semibold text-white">Quick Links</h3>
-            <ul className="space-y-3">
-              {["Home", "About Us", "Contact", "Become a Provider"].map(
-                (item, index) => (
-                  <li
-                    key={index}
-                    className="hover:text-yellow-400 cursor-pointer text-sm transition duration-300 hover:translate-x-1"
-                  >
-                    {item}
-                  </li>
-                )
-              )}
+            <ul className="space-y-4 flex flex-col">
+              <Link
+              to={"/"}
+              className=" flex items-center hover:text-yellow-400 cursor-pointer text-sm transition-all duration-300"
+              >
+              
+              Home
+              </Link>
+              <Link
+              to={"/about"}
+              className=" flex items-center hover:text-yellow-400 cursor-pointer text-sm transition-all duration-300"
+              >
+              
+              About Us
+              </Link>
+              <Link
+              to={"/contact"}
+              className=" flex items-center hover:text-yellow-400 cursor-pointer text-sm transition-all duration-300"
+              >
+              
+              Contact Us
+              </Link>
+              <Link
+              to={"/signup"}
+              className=" flex items-center hover:text-yellow-400 cursor-pointer text-sm transition-all duration-300"
+              >
+              
+              Join with us
+              </Link>
             </ul>
-          </div>
+            </div>
 
           {/* Contact Section */}
           <div className="space-y-4 text-center md:text-left">
@@ -80,22 +99,22 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex justify-center md:justify-start items-center space-x-2">
                 <IoLocationSharp className="text-yellow-400" />
-                <span>123 Service Street, Business District, City, 10001</span>
+                <span>buenos aires, Argentina</span>
               </li>
               <li className="flex flex-wrap justify-center md:justify-start items-center space-x-2">
                 <IoCall className="text-yellow-400" />
-                <span>(123) 456-7890</span>
+                <span>+54 2915738993</span>
               </li>
               <li className="flex justify-center md:justify-start items-center space-x-2">
                 <MdEmail className="text-yellow-400" />
-                <span>contact@doit.com</span>
+                <span>contact@d0lt.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Website Button and Newsletter Section */}
-        <div className="mt-12  flex justify-between items-center">
+        <div className="mt-6  flex justify-between items-center">
           {/* Button */}
           <div className="text-center md:text-left">
             <button
@@ -108,16 +127,18 @@ const Footer = () => {
           </div>
 
           {/* Newsletter */}
-          <div className="w-[30vw] space-y-4 text-center md:text-left">
+          <div className="w-[28vw] space-y-4 text-center md:text-left">
             {/* <h3 className="text-xl font-semibold text-white">Newsletter</h3> */}
-            <p className="text-sm">Stay updated with our latest services and offers</p>
+            <p className="text-sm">
+              Stay updated with our latest services and offers
+            </p>
             <div className="flex flex-col sm:flex-row gap-2">
               <input
                 type="email"
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-2 rounded-md md:rounded-r-none bg-gray-800 border border-gray-700 focus:outline-none focus:border-yellow-400"
               />
-              <button className="px-6 py-2 bg-yellow-400 text-gray-900 font-semibold rounded-md md:rounded-l-none hover:bg-yellow-300 transition duration-300">
+              <button className="px-3 py-1 text-red-500 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-md shadow-lg transition-all duration-300 ease-in-out hover:brightness-110 font-semibold  md:rounded-l-none ">
                 Subscribe
               </button>
             </div>
