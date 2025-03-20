@@ -141,21 +141,21 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-16 sm:pt-20">
       <Helmet>
         <title>Contact Us | DO!T - Home Services Platform</title>
       </Helmet>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-doit-100 via-doit-50/50 to-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-doit-100 via-doit-50/50 to-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-doit-500/10 to-orange-500/10"></div>
-        <div className="container-custom relative">
+        <div className="container-custom relative px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-doit-900 mb-6 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-doit-900 mb-4 sm:mb-6 tracking-tight">
               Get in Touch
             </h1>
-            <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-foreground/80 leading-relaxed">
               Have questions or feedback? We're here to help you make your home
               better.
             </p>
@@ -164,40 +164,40 @@ const Contact = () => {
       </section>
 
       {/* Contact Information */}
-      <section className="py-16 -mt-16">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <section className="py-12 sm:py-16 -mt-8 sm:-mt-12 md:-mt-16">
+        <div className="container-custom px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {ContactInfo.map((item, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100/50 hover:border-doit-100"
+                className="group bg-white rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100/50 hover:border-doit-100"
               >
-                <div className="w-16 h-16 rounded-2xl bg-doit-50 flex items-center justify-center mb-6 group-hover:bg-doit-100 transition-colors">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-doit-50 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-doit-100 transition-colors">
                   <item.icon
                     className="text-doit-600 group-hover:text-doit-700 transition-colors"
-                    size={28}
+                    size={24}
                   />
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-doit-900">
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-doit-900">
                   {item.title}
                 </h3>
-                <p className="text-foreground/90 font-medium mb-2">
+                <p className="text-foreground/90 font-medium mb-1 sm:mb-2">
                   {item.content}
                 </p>
-                <p className="text-foreground/60 text-sm">{item.description}</p>
+                <p className="text-foreground/60 text-xs sm:text-sm">{item.description}</p>
               </div>
             ))}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mt-24">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 mt-16 sm:mt-20 md:mt-24">
             {/* Contact Form */}
-            <div className="lg:col-span-3 bg-white rounded-2xl shadow-lg p-10 border border-gray-100">
-              <h2 className="text-3xl font-bold mb-8 text-doit-900 flex items-center">
-                <MessageSquare className="mr-4 text-doit-500" size={32} />
+            <div className="lg:col-span-3 bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-10 border border-gray-100">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-doit-900 flex items-center">
+                <MessageSquare className="mr-3 sm:mr-4 text-doit-500" size={28} />
                 Send Us a Message
               </h2>
 
-              <form onSubmit={handleSubmit} className="space-y-8">
+              <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label htmlFor="name" className="block text-sm font-medium">
@@ -210,6 +210,7 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="your name"
                       required
+                      className="w-full"
                     />
                   </div>
 
@@ -228,6 +229,7 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="john@example.com"
                       required
+                      className="w-full"
                     />
                   </div>
                 </div>
@@ -312,19 +314,17 @@ const Contact = () => {
               </form>
 
               {/* Map Section */}
-              <div className="mt-12 rounded-xl overflow-hidden border border-gray-100 shadow-inner">
-                {/* <div className="aspect-video w-full"> */}
+              <div className="mt-10 sm:mt-12 rounded-xl overflow-hidden border border-gray-100 shadow-inner h-[300px] sm:h-[400px]">
                 <Map />
-                {/* </div> */}
               </div>
             </div>
 
             {/* FAQ Section */}
             <div className="lg:col-span-2">
-              <h2 className="text-3xl font-bold mb-8 text-doit-900">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-doit-900">
                 Common Questions
               </h2>
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {[
                   {
                     question: "How do I book a service?",
@@ -376,15 +376,15 @@ const Contact = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-24 bg-gradient-to-b from-yellow-300 to-yellow-600">
-        <div className="container-custom">
-          <div className="bg-gradient-to-br from-doit-50 to-orange-50 rounded-3xl p-12 md:p-16 shadow-lg">
-            <footer className=" text-gray-900 py-8 md:py-12">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-yellow-300 to-yellow-600">
+        <div className="container-custom px-4 sm:px-6">
+          <div className="bg-gradient-to-br from-doit-50 to-orange-50 rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-16 shadow-lg">
+            <footer className="text-gray-900 py-6 sm:py-8 md:py-12">
+              <div className="max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 lg:gap-12">
                   {/* Brand Section */}
                   <div className="space-y-4 text-center md:text-left">
-                    <h2 className="text-2xl font-bold text-yellow-400">DO!T</h2>
+                    <h2 className="text-xl sm:text-2xl font-bold text-yellow-400">DO!T</h2>
                     <p className="text-sm md:text-base">
                       Your all-in-one solution for connecting with professional
                       service providers across all industries.
@@ -419,31 +419,31 @@ const Contact = () => {
 
                   {/* Quick Links */}
                   <div className="space-y-4 text-center md:text-left">
-                    <h3 className="text-xl font-semibold text-gray-900">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
                       Quick Links
                     </h3>
-                    <ul className="space-y-3 md:space-y-4 flex flex-col items-center">
+                    <ul className="space-y-3 md:space-y-4 flex flex-col items-center md:items-start">
                       <Link
                         to={"/"}
-                        className="flex items-center justify-center md:justify-start w-full py-2 md:py-0 hover:text-yellow-400 hover:bg-white/30 md:hover:bg-transparent rounded-lg md:rounded-none cursor-pointer text-sm md:text-sm transition-all duration-300"
+                        className="flex items-center justify-center md:justify-start w-full py-2 md:py-0 hover:text-yellow-400 hover:bg-white/30 md:hover:bg-transparent rounded-lg md:rounded-none cursor-pointer text-sm transition-all duration-300"
                       >
                         <span>Home</span>
                       </Link>
                       <Link
                         to={"/about"}
-                        className="flex items-center justify-center md:justify-start w-full py-2 md:py-0 hover:text-yellow-400 hover:bg-white/30 md:hover:bg-transparent rounded-lg md:rounded-none cursor-pointer text-sm md:text-sm transition-all duration-300"
+                        className="flex items-center justify-center md:justify-start w-full py-2 md:py-0 hover:text-yellow-400 hover:bg-white/30 md:hover:bg-transparent rounded-lg md:rounded-none cursor-pointer text-sm transition-all duration-300"
                       >
                         <span>About Us</span>
                       </Link>
                       <Link
                         to={"/contact"}
-                        className="flex items-center justify-center md:justify-start w-full py-2 md:py-0 hover:text-yellow-400 hover:bg-white/30 md:hover:bg-transparent rounded-lg md:rounded-none cursor-pointer text-sm md:text-sm transition-all duration-300"
+                        className="flex items-center justify-center md:justify-start w-full py-2 md:py-0 hover:text-yellow-400 hover:bg-white/30 md:hover:bg-transparent rounded-lg md:rounded-none cursor-pointer text-sm transition-all duration-300"
                       >
                         <span>Contact Us</span>
                       </Link>
                       <Link
                         to={"/signup"}
-                        className="flex items-center justify-center md:justify-start w-full py-2 md:py-0 hover:text-yellow-400 hover:bg-white/30 md:hover:bg-transparent rounded-lg md:rounded-none cursor-pointer text-sm md:text-sm transition-all duration-300"
+                        className="flex items-center justify-center md:justify-start w-full py-2 md:py-0 hover:text-yellow-400 hover:bg-white/30 md:hover:bg-transparent rounded-lg md:rounded-none cursor-pointer text-sm transition-all duration-300"
                       >
                         <span>Join with us</span>
                       </Link>
@@ -452,13 +452,13 @@ const Contact = () => {
 
                   {/* Contact Section */}
                   <div className="space-y-4 text-center md:text-left">
-                    <h3 className="text-xl font-semibold text-gray-900">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
                       Contact Us
                     </h3>
                     <ul className="space-y-3">
                       <li className="flex justify-center md:justify-start items-center space-x-2">
-                        <IoLocationSharp className="text-yellow-400" />
-                        <span>buenos aires, Argentina</span>
+                        <IoLocationSharp className="text-yellow-400 flex-shrink-0" />
+                        <span className="text-sm sm:text-base">buenos aires, Argentina</span>
                       </li>
                       <li className="flex flex-wrap justify-center md:justify-start items-center space-x-2">
                         <IoCall className="text-yellow-400" />
@@ -473,12 +473,12 @@ const Contact = () => {
                 </div>
 
                 {/* Website Button and Newsletter Section */}
-                <div className="mt-6  flex flex-col md:flex-row justify-between items-center">
+                <div className="mt-8 sm:mt-10 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4">
                   {/* Button */}
-                  <div className="text-center md:text-left">
+                  <div className="text-center md:text-left w-full md:w-auto">
                     <button
                       onClick={() => (window.location.href = "http://d0lt.com")}
-                      className="w-full md:w-auto px-8 py-3 text-lg font-semibold text-yellow-500 bg-transparent border border-white shadow-md shadow-orange-500/50 rounded-full transition duration-300 hover:shadow-orange-400/80 hover:scale-105 relative overflow-hidden group mb-10 md:mb-0"
+                      className="w-full md:w-auto px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg font-semibold text-yellow-500 bg-transparent border border-white shadow-md shadow-orange-500/50 rounded-full transition duration-300 hover:shadow-orange-400/80 hover:scale-105 relative overflow-hidden group"
                     >
                       <span className="relative z-10">{buttonText}</span>
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1500ms]"></div>
@@ -486,23 +486,23 @@ const Contact = () => {
                   </div>
 
                   {/* Newsletter */}
-                  <div className="md:w-[28vw] space-y-4 text-center md:text-left">
-                    {/* <h3 className="text-xl font-semibold text-white">Newsletter</h3> */}
-                    <p className="text-sm">
+                  <div className="w-full md:w-[25vw] lg:max-w-md space-y-3 sm:space-y-4 text-center md:text-left">
+                    <p className="text-xs sm:text-sm">
                       Stay updated with our latest services and offers
                     </p>
                     <div className="flex flex-col sm:flex-row gap-2">
                       <input
                         type="email"
                         placeholder="Enter your email"
-                        className="flex-1 px-4 py-2 rounded-md md:rounded-r-none bg-transparent border-gray-700 border focus:outline-none "
+                        className="flex-1 px-3 sm:px-4 py-2 rounded-md sm:rounded-r-none bg-transparent border-gray-700 border focus:outline-none text-sm"
                       />
-                      <button className="px-3 py-1 text-red-500 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-md shadow-lg transition-all duration-300 ease-in-out hover:brightness-110 font-semibold  md:rounded-l-none ">
+                      <button className="px-3 py-2 text-red-500 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-md sm:rounded-l-none shadow-lg transition-all duration-300 ease-in-out hover:brightness-110 font-semibold text-sm">
                         Subscribe
                       </button>
                     </div>
                   </div>
                 </div>
+                
                 {/* Mobile Social Icons */}
                 <div className="mt-8 md:hidden flex justify-center space-x-6 text-gray-400">
                   <FaFacebookF

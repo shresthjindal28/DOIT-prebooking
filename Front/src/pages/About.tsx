@@ -6,6 +6,10 @@ import { FaWhatsapp } from "react-icons/fa";
 import Service from '../assests/aboutus_doit.jpg';
 import Santhosh from '../assests/Santhoshpfp.jpeg';
 import Shresth from '../assests/Shresthpfp.jpg';
+import Nasir from '../assests/Nasirpfp.jpeg';
+import Jayraj from '../assests/Jayraj.jpg';
+
+
 
 
 const About = () => {
@@ -164,13 +168,13 @@ const About = () => {
                 name: "Lezcano Jorge D",
                 role: "Founder",
                 image:
-                  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
+              "img"    
               },
               {
                 name: "Abdul Nasir",
                 role: "Co-Founder & CEO",
                 image:
-                  "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
+                  Nasir,    
               },
               {
                 name: "Snathosh Patel",
@@ -182,8 +186,7 @@ const About = () => {
                 name: "Jayraj Araj",
                 role: " FSDE Full Stack Development Engineer",
                 image:
-                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
-              },
+                  Jayraj,},
               {
                 name: "Shresth Jindal",
                 role: "FSDE Full Stack Development Engineer",

@@ -17,7 +17,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className=" min-h-screen flex flex-col">
       <div className="flex-1 flex flex-col md:flex-row">
         <div className="md:w-1/2 bg-gradient-to-br from-doit-400 to-orange-500 p-10 md:p-16 flex items-center justify-center">
           <div className="max-w-md text-white">
@@ -34,7 +34,7 @@ const Login = () => {
           </div>
         </div>
         
-        <div className="md:w-1/2 p-10 md:p-16 flex items-center justify-center bg-white">
+        <div className="md:w-1/2 p-10 md:p-16 flex items-center justify-center bg-white ">
           <div className="w-full max-w-md">
             <div className="mb-8 text-center md:text-left">
               <h2 className="text-2xl font-bold mb-2">Login to Your Account</h2>

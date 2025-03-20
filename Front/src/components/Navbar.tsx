@@ -55,7 +55,7 @@ const Navbar = () => {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
-      } ${LoginClicked ? "bg-white" : "bg-transparent"} ${isAuthenticated ? "bg-transparent" :"bg-transparent"} `}
+      } ${LoginClicked ? "bg-gradient-to-tr from-yellow-400 to-orange-400 shadow-md" : "bg-transparent"} ${isAuthenticated ? "bg-transparent" :"bg-transparent"} `}
     >
       <div className="container-custom flex items-center justify-between px-4 lg:px-6">
         <div className="flex-1 flex justify-start">

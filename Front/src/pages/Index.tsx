@@ -176,7 +176,7 @@ const Index = () => {
         </div>
 
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/2 md:bg-black/2 backdrop-blur-[1px] z-10" />
+        <div className="absolute inset-0 bg-black/50 sm:bg-black/45 md:bg-black/40 lg:bg-black/35 xl:bg-black/30 backdrop-blur-[1px] sm:backdrop-blur-[2px] z-10" />
 
         {/* Content */}
         <div
