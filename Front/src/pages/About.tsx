@@ -223,7 +223,7 @@ const About = () => {
             {/* community links */}
 
             <Link to="#whatsapp-community">
-              <button className="relative px-6 py-3 font-bold text-white rounded-lg bg-gradient-to-r from-orange-400 via-yellow-500 to-yellow-400 hover:from-orange-600 hover:to-yellow-500 transition duration-300 overflow-hidden shadow-xl group">
+              <button className="relative px-6 py-3 font-bold text-white rounded-lg bg-gradient-to-r from-orange-400 via-yellow-500 to-yellow-400 hover:from-orange-600 hover:to-yellow-500 transition duration-300 overflow-hidden shadow-white/30 shadow-lg group">
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-white to-transparent opacity-30 transform -translate-x-full transition-transform duration-500 group-hover:translate-x-0"></span>
                 <span className="relative z-10 flex gap-3 items-center">
                   <FaWhatsapp size={19} />

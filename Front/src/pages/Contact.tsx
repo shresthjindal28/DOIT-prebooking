@@ -422,7 +422,7 @@ const Contact = () => {
                     <h3 className="text-xl font-semibold text-gray-900">
                       Quick Links
                     </h3>
-                    <ul className="space-y-3 md:space-y-4 flex flex-col items-center md:items-start">
+                    <ul className="space-y-3 md:space-y-4 flex flex-col items-center">
                       <Link
                         to={"/"}
                         className="flex items-center justify-center md:justify-start w-full py-2 md:py-0 hover:text-yellow-400 hover:bg-white/30 md:hover:bg-transparent rounded-lg md:rounded-none cursor-pointer text-sm md:text-sm transition-all duration-300"
