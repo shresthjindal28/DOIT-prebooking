@@ -137,7 +137,6 @@ const Navbar = () => {
             <Link to="/" className="py-2 transition-colors duration-300 hover:text-red-600">Home</Link>
             <a href="#featured" onClick={scrollToFeatured} className="py-2 transition-colors duration-300 hover:text-red-600">Featured</a>
             <Link to="/services" className="py-2 transition-colors duration-300 hover:text-red-600">Services</Link>
-            <Link to="#" className="text-black transition-colors duration-300 hover:text-red-600">Featured</Link>
             <Link to="/about" className="py-2 transition-colors duration-300 hover:text-red-600">About Us</Link>
             <Link to="/contact" className="py-2 transition-colors duration-300 hover:text-red-600">Contact Us</Link>
             {!isAuthenticated && (

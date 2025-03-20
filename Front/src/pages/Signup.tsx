@@ -24,7 +24,7 @@ const Signup = () => {
         <div className="md:w-1/2 p-10 md:p-16 flex items-center justify-center">
           <div className="w-full max-w-md">
             <div className="mb-8 text-center md:text-left">
-              <h2 className="text-2xl font-bold mb-2">Create Your Account</h2>
+              <h2 className="text-2xl font-bold mb-2 mt-[10px]">Create Your Account</h2>
               <p className="text-foreground/70">Join DO!T today and get things done!</p>
             </div>
             
