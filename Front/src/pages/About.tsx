@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Check, Star, Award, Shield, Users, Heart } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import Service from '../assests/aboutus_doit.jpg';
+import Santhosh from '../assests/Santhoshpfp.jpeg';
+import Shresth from '../assests/Shresthpfp.jpg';
 
 
 const About = () => {
@@ -174,7 +176,7 @@ const About = () => {
                 name: "Snathosh Patel",
                 role: "Co-Founder & CTO",
                 image:
-                  "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
+                  Santhosh,
               },
               {
                 name: "Jayraj Araj",
@@ -186,7 +188,7 @@ const About = () => {
                 name: "Shresth Jindal",
                 role: "FSDE Full Stack Development Engineer",
                 image:
-                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
+                  Shresth,
               },
             ].map((member) => (
               <div
