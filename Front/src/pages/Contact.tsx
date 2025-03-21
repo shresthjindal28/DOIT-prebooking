@@ -141,7 +141,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen pt-16 sm:pt-20">
+    <div className="min-h-screen pt-16 sm:pt-20" >
       <Helmet>
         <title>Contact Us | DO!T - Home Services Platform</title>
       </Helmet>
@@ -152,10 +152,10 @@ const Contact = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-doit-500/10 to-orange-500/10"></div>
         <div className="container-custom relative px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-doit-900 mb-4 sm:mb-6 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-doit-900 mb-4 sm:mb-6 tracking-tight"  style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)" }}>
               Get in Touch
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-foreground/80 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-foreground/80 leading-relaxed"  style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)" }}>
               Have questions or feedback? We're here to help you make your home
               better.
             </p>
@@ -165,20 +165,20 @@ const Contact = () => {
 
       {/* Contact Information */}
       <section className="py-12 sm:py-16 -mt-8 sm:-mt-12 md:-mt-16">
-        <div className="container-custom px-4 sm:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+        <div className="container-custom px-4 sm:px-6" >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8" >
             {ContactInfo.map((item, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100/50 hover:border-doit-100"
+                className="group bg-white rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100/50 hover:border-doit-100"  
               >
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-doit-50 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-doit-100 transition-colors">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-doit-50 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-doit-100 transition-colors" >
                   <item.icon
-                    className="text-doit-600 group-hover:text-doit-700 transition-colors"
-                    size={24}
+                    className="text-doit-600 group-hover:text-doit-700 transition-colors" 
+                    size={24} 
                   />
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-doit-900">
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-doit-900"  style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)" }}>
                   {item.title}
                 </h3>
                 <p className="text-foreground/90 font-medium mb-1 sm:mb-2">
@@ -191,8 +191,8 @@ const Contact = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 mt-16 sm:mt-20 md:mt-24">
             {/* Contact Form */}
-            <div className="lg:col-span-3 bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-10 border border-gray-100">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-doit-900 flex items-center">
+            <div className="lg:col-span-3 bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-10 border border-gray-100"  style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)" }}>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-doit-900 flex items-center"  style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)" }}>
                 <MessageSquare className="mr-3 sm:mr-4 text-doit-500" size={28} />
                 Send Us a Message
               </h2>
@@ -314,14 +314,14 @@ const Contact = () => {
               </form>
 
               {/* Map Section */}
-              <div className="mt-10 sm:mt-12 rounded-xl overflow-hidden border border-gray-100 shadow-inner h-[300px] sm:h-[400px]">
+              <div className="mt-10 sm:mt-12 rounded-xl overflow-hidden border border-gray-100 shadow-inner h-[300px] sm:h-[400px] relative z-10">
                 <Map />
               </div>
             </div>
 
             {/* FAQ Section */}
             <div className="lg:col-span-2">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-doit-900">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-doit-900"  style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)" }}>
                 Common Questions
               </h2>
               <div className="space-y-4 sm:space-y-6">
@@ -418,7 +418,7 @@ const Contact = () => {
                   </div>
 
                   {/* Quick Links */}
-                  <div className="space-y-4 text-center md:text-left">
+                  <div className="space-y-4 flex flex-col text-center md:text-right md:items-center">
                     <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
                       Quick Links
                     </h3>

@@ -59,39 +59,39 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4 flex flex-col  text-center md:text-left">
+          <div className="space-y-4 flex flex-col text-center md:text-right md:items-center">
             <h3 className="text-xl font-semibold text-white">Quick Links</h3>
             <ul className="space-y-4 flex flex-col">
               <Link
-              to={"/"}
-              className=" flex items-center hover:text-yellow-400 cursor-pointer text-sm transition-all duration-300"
+                to={"/"}
+                onClick={() => window.scrollTo(0, 0)}
+                className="flex items-center hover:text-yellow-400 cursor-pointer text-sm transition-all duration-300"
               >
-              
-              Home
+                Home
               </Link>
               <Link
-              to={"/about"}
-              className=" flex items-center hover:text-yellow-400 cursor-pointer text-sm transition-all duration-300"
+                to={"/about"}
+                onClick={() => window.scrollTo(0, 0)}
+                className="flex items-center hover:text-yellow-400 cursor-pointer text-sm transition-all duration-300"
               >
-              
-              About Us
+                About Us
               </Link>
               <Link
-              to={"/contact"}
-              className=" flex items-center hover:text-yellow-400 cursor-pointer text-sm transition-all duration-300"
+                to={"/contact"}
+                onClick={() => window.scrollTo(0, 0)}
+                className="flex items-center hover:text-yellow-400 cursor-pointer text-sm transition-all duration-300"
               >
-              
-              Contact Us
+                Contact Us
               </Link>
               <Link
-              to={"/signup"}
-              className=" flex items-center hover:text-yellow-400 cursor-pointer text-sm transition-all duration-300"
+                to={"/signup"}
+                onClick={() => window.scrollTo(0, 0)}
+                className="flex items-center hover:text-yellow-400 cursor-pointer text-sm transition-all duration-300"
               >
-              
-              Join with us
+                Join with us
               </Link>
             </ul>
-            </div>
+          </div>
 
           {/* Contact Section */}
           <div className="space-y-4 text-center md:text-left">
@@ -126,23 +126,22 @@ const Footer = () => {
             </button>
           </div>
 
-          {/* Newsletter */}
-          <div className="md:w-[28vw] space-y-4 text-center md:text-left">
-            {/* <h3 className="text-xl font-semibold text-white">Newsletter</h3> */}
-            <p className="text-sm">
-              Stay updated with our latest services and offers
-            </p>
-            <div className="flex flex-col sm:flex-row gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2 rounded-md md:rounded-r-none bg-gray-800 border border-gray-700 focus:outline-none focus:border-yellow-400"
-              />
-              <button className="px-3 py-1 text-red-500 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-md shadow-lg transition-all duration-300 ease-in-out hover:brightness-110 font-semibold  md:rounded-l-none ">
-                Subscribe
-              </button>
-            </div>
-          </div>
+           {/* Newsletter */}
+           <div className="w-full md:w-[25vw] lg:max-w-md space-y-3 sm:space-y-4 text-center md:text-left">
+                    <p className="text-xs sm:text-sm">
+                      Stay updated with our latest services and offers
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-2">
+                      <input
+                        type="email"
+                        placeholder="Enter your email"
+                        className="flex-1 px-3 sm:px-4 py-2 rounded-md sm:rounded-r-none bg-transparent border-gray-500 border focus:outline-none text-sm"
+                      />
+                      <button className="px-3 py-2 text-red-500 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 rounded-md sm:rounded-l-none shadow-lg transition-all duration-300 ease-in-out hover:brightness-110 font-semibold text-sm">
+                        Subscribe
+                      </button>
+                    </div>
+                  </div>
         </div>
 
         {/* Mobile Social Icons */}

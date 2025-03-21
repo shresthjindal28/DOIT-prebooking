@@ -171,12 +171,14 @@ const Index = () => {
             loop
             autoPlay
             playsInline
-            className="w-full h-full object-cover brightness-[0.5] md:brightness-[0.6]"
+            className="w-full h-full object-cover brightness-[0.6] md:brightness-[0.6]"
           />
         </div>
 
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/50 sm:bg-black/45 md:bg-black/40 lg:bg-black/35 xl:bg-black/30 backdrop-blur-[1px] sm:backdrop-blur-[2px] z-10" />
+        <div className="absolute  bg-white/20 backdrop-blur-md border border-white/40 rounded-lg shadow-lg z-10" />
+        {/* Nothing changes much */}
+
 
         {/* Content */}
         <div
@@ -185,25 +187,34 @@ const Index = () => {
           }`}
         >
           {/* Tagline */}
-          <span className="inline-block bg-transparent border text-red-600 px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base md:text-lg font-semibold tracking-wide  transition ">
-            Maintenance Made Simple
-          </span>
+          <span
+  className="relative inline-block bg-transparent border border-white px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base md:text-lg font-semibold tracking-wide transition text-red-500"
+  style={{
+    textShadow: "2px 2px 6px rgba(0, 0, 0, 1)",
+    position: "relative",
+    overflow: "hidden",
+  }}
+>
+  Maintenance Made Simple
+  {/* Shine Effect */}
+  <span className="absolute inset-0 rounded-full border border-white opacity-0 animate-shine"></span>
+</span>
 
           {/* Main Heading */}
-          <h1 className="text-white text-2xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mt-6 leading-tight drop-shadow-lg">
-            Your One-Stop Solution {" "}
-            <span className="text-red-700">Maintenance Services</span>
-          </h1>
+          <h1 className="text-white text-2xl md:text-5xl lg:text-6xl xl:text-6xl font-bold mt-7 leading-tight drop-shadow-lg" style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)" }}>
+  <span className="block">Your One-Stop Solution</span>
+  <span className="block text-red-600" style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)" }}>Maintenance Services</span>
+</h1>
 
           {/* Description */}
-          <p className="text-gray-200 text-base sm:text-lg md:text-xl xl:text-2xl mt-4 max-w-xl sm:max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-200 text-base sm:text-lg md:text-xl xl:text-2xl mt-4 max-w-xl sm:max-w-2xl mx-auto leading-relaxed" style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)" }}>
             DO!T connects you with skilled professionals. From plumbing to
             painting, we've got you covered. Experienced professionals,
             guaranteed quality, and 24/7 support.
           </p>
 
           {/* Buttons */}
-          <div className="mt-12 flex flex-col sm:flex-row gap-4 mt-22 w-full sm:w-auto">
+          <div className="mt-24 flex flex-wrap justify-center gap-6 w-full sm:w-auto">
             <Link to="/signup">
               <Button className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-600 text-red-500 px-6 py-3 text-lg md:text-xl font-medium rounded-lg shadow-lg transition w-full sm:w-auto">
                 Get Started
@@ -236,10 +247,10 @@ const Index = () => {
       <section className="py-12 sm:py-16 md:py-20 px-4 bg-gradient-to-b from-white to-muted">
         <div className="container-custom">
           <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-16 animate-fade-in">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4" style={{ textShadow: "2px 2px 4px rgba(128, 128, 128, 0.6)" }}>
               Our Services
             </h2>
-            <p className="text-foreground/70 text-base sm:text-lg">
+            <p className="text-foreground/70 text-base sm:text-lg" style={{ textShadow: "2px 2px 4px rgba(128, 128, 128, 0.2)" }}>
               Whatever your home needs, we have professionals ready to help
             </p>
           </div>
@@ -270,10 +281,10 @@ const Index = () => {
       <section className="py-12 sm:py-16 md:py-20 px-4 md:px-8 bg-gradient-to-r from-doit-400 to-orange-500 text-white">
         <div className="container-custom text-center">
           <div className="max-w-2xl mx-auto md:px-6">
-            <h2 className="text-2xl sm:text-3xl md:text-3.5xl lg:text-4xl font-bold mb-4 md:mb-5 lg:mb-6 animate-fade-in">
+            <h2 className="text-2xl sm:text-3xl md:text-3.5xl lg:text-4xl font-bold mb-4 md:mb-5 lg:mb-6 animate-fade-in" style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.6)" }}>
               Ready to Get Things Done?
             </h2>
-            <p className="text-white/90 text-base sm:text-lg md:text-xl mb-6 md:mb-7 lg:mb-8 animate-fade-in">
+            <p className="text-white/90 text-base sm:text-lg md:text-xl mb-6 md:mb-7 lg:mb-8 animate-fade-in"  style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)" }}>
               Join thousands of happy homeowners who trust DO!T for their home
               service needs
             </p>

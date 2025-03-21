@@ -56,8 +56,8 @@ const FeaturedServices = () => {
     <section className="py-16 bg-gradient-to-b from-white to-muted">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="h2 mb-3">Featured Services</h2>
-          <p className="text-foreground/70 max-w-2xl mx-auto">
+          <h2 className="h2 mb-3" style={{ textShadow: "2px 2px 4px rgba(128, 128, 128, 0.4)" }}>Featured Services</h2>
+          <p className="text-foreground/70 max-w-2xl mx-auto"style={{ textShadow: "2px 2px 4px rgba(128, 128, 128, 0.2)" }}>
             Our most popular services that homeowners trust and love
           </p>
         </div>

@@ -96,3 +96,16 @@
     @apply px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl;
   }
 }
+@keyframes shine {
+  0% {
+    opacity: 0.5;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
